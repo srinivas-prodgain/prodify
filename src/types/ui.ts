@@ -47,7 +47,7 @@ export type TProject = {
     tasks: number
     teammates: number
     color: string
-    icon: string
+    icon: React.ReactNode
 }
 
 export type TReminder = {
@@ -69,5 +69,13 @@ export type TNavItem = {
         title: string
         url: string
     }[]
+}
+
+export type TGoal = {
+    id: number
+    name: string
+    project: string
+    progress: number
+    color: string
 }
 

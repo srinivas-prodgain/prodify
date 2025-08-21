@@ -5,7 +5,10 @@ import {
     Bell,
     ChevronDown,
     ChevronUp,
-    Trash2
+    Trash2,
+    Timer,
+    Check
+
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -69,8 +72,8 @@ export function Reminders() {
         <Card className="rounded-xl border shadow-sm">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
                 <div className="flex items-center gap-2">
-                    <Bell className="w-5 h-5 text-muted-foreground" />
-                    <CardTitle className="text-lg font-semibold">Reminders</CardTitle>
+                    <Timer className="w-6 h-6 text-[#8379c9]" strokeWidth={2} />
+                    <CardTitle className="text-lg font-[580]">Reminders</CardTitle>
                 </div>
             </CardHeader>
             <CardContent className="pt-0">
@@ -84,12 +87,13 @@ export function Reminders() {
                             >
                                 <div className="flex items-center gap-2">
                                     {isTodayOpen ? (
-                                        <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                                        <ChevronDown strokeWidth={2.5} height={30} width={30}  />
                                     ) : (
-                                        <ChevronUp className="w-4 h-4 text-muted-foreground" />
+                                        <ChevronUp strokeWidth={2.5} height={30} width={30} />
                                     )}
-                                    <span className="font-medium text-sm">Today</span>
-                                    <span className="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-xs font-medium">
+                                    <span className="font-[580] text-[18px]">Today</span>
+                                    <span className="text-sm text-[#a5a5a5]">•</span>
+                                    <span className="text-[15px] font-[580] text-[#a5a5a5]">
                                         {todayReminders.length}
                                     </span>
                                 </div>
@@ -99,15 +103,11 @@ export function Reminders() {
                             {todayReminders.map((reminder) => (
                                 <div
                                     key={reminder.id}
-                                    className="flex items-start justify-between gap-3 p-3 sm:p-4 rounded-lg border hover:bg-gray-50 transition-colors"
+                                    className="flex items-start justify-between gap-3 p-3 pl-0 transition-colors border-b-2 border-[#f2f3f7] cursor-pointer"
                                 >
                                     <div className="flex items-start gap-3 flex-1">
-                                        <div
-                                            className="w-2 h-2 rounded-full flex-shrink-0 mt-2"
-                                            style={{ backgroundColor: reminder.color }}
-                                        />
                                         <div className="flex-1 min-w-0">
-                                            <p className="text-sm text-gray-900 leading-relaxed">
+                                            <p className="text-[15px] text-[#333333] leading-relaxed font-[450]">
                                                 {reminder.text}
                                             </p>
                                         </div>
@@ -116,7 +116,7 @@ export function Reminders() {
                                         <Button
                                             variant="ghost"
                                             size="sm"
-                                            className="w-8 h-8 p-0 hover:bg-blue-50 hover:text-blue-600"
+                                            className="w-9 h-9 p-0 hover:bg-blue-50 hover:text-blue-600"
                                             onClick={() => handleReminderNotify(reminder.id)}
                                         >
                                             <Bell className="w-4 h-4" />
@@ -124,10 +124,18 @@ export function Reminders() {
                                         <Button
                                             variant="ghost"
                                             size="sm"
-                                            className="w-8 h-8 p-0 hover:bg-red-50 hover:text-red-600"
+                                            className="w-9 h-9 p-0 hover:bg-red-50 hover:text-red-600"
                                             onClick={() => handleReminderDelete(reminder.id)}
                                         >
                                             <Trash2 className="w-4 h-4" />
+                                        </Button>
+                                        <Button
+                                            variant="ghost"
+                                            size="sm"
+                                            className="w-6 h-6 p-0 bg-[#30d5d1] text-white rounded-full hover:bg-[#30d5d1]/80 hover:text-white"
+                                            onClick={() => handleReminderDelete(reminder.id)}
+                                        >
+                                            <Check />
                                         </Button>
                                     </div>
                                 </div>

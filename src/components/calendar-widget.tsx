@@ -2,14 +2,12 @@
 
 import { useState, useMemo } from "react"
 import {
-    Calendar as CalendarIcon,
+    CalendarDays,
     ChevronDown,
     ChevronLeft,
     ChevronRight,
     MoreHorizontal,
-    Clock,
     MapPin,
-    Users
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -20,7 +18,7 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { TCalendarEvent, TCalendarEventPlatform } from "@/types/ui"
+import { TCalendarEvent } from "@/types/ui"
 
 const MONTHS = [
     'January', 'February', 'March', 'April', 'May', 'June',
@@ -66,7 +64,7 @@ const events: TCalendarEvent[] = [
     {
         id: 3,
         title: "1:1 with Manager",
-        date: "2025-08-09",
+        date: "2025-08-23",
         startTime: "11:00",
         endTime: "11:30",
         type: "meeting",
@@ -206,25 +204,17 @@ export function CalendarWidget() {
         setSelectedDate(date)
     }
 
-    const getPlatformIcon = (platform?: TCalendarEventPlatform) => {
-        switch (platform) {
-            case "Google Meet": return '📹'
-            case "Zoom": return '💻'
-            case "Microsoft Teams": return '👥'
-            default: return '📍'
-        }
-    }
 
     return (
-        <Card className="rounded-xl border shadow-sm">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
+        <Card className="rounded-xl border shadow-sm min-w-[540px]">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0">
                 <div className="flex items-center gap-2">
-                    <CalendarIcon className="w-5 h-5" />
-                    <CardTitle className="text-lg font-semibold">Calendar</CardTitle>
+                    <CalendarDays className="w-5 h-5 text-[#8379c9]" />
+                    <CardTitle className="text-lg font-[580]">Calendar</CardTitle>
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" size="sm" className="text-sm text-muted-foreground">
-                                {MONTHS[selectedMonth]} {selectedYear}
+                            <Button variant="ghost" size="sm" className="text-sm text-muted-foreground hover:bg-purple-50 hover:text-[#6742ED]">
+                                {MONTHS[selectedMonth]}
                                 <ChevronDown className="w-4 h-4 ml-1" />
                             </Button>
                         </DropdownMenuTrigger>
@@ -247,34 +237,39 @@ export function CalendarWidget() {
                     <Button variant="ghost" size="sm" onClick={goToPreviousWeek} className="flex-shrink-0">
                         <ChevronLeft className="w-4 h-4" />
                     </Button>
-                    <div className="flex gap-1 sm:gap-2 flex-1 justify-center mx-2">
+                    <div className="flex gap-2 flex-1 justify-between mx-5">
                         {getWeekDates.map((date, index) => {
-                            const dayEvents = getEventsForDate(date)
-                            const today = isToday(date)
+                            const todayCheck = isToday(date)
                             const selected = isSelected(date)
+                            const isEvent = getEventsForDate(date).length > 0
+
+                            // Determine background and text colors
+                            let bgClass = 'hover:bg-purple-50'
+                            let textClass = 'text-gray-500'
+
+                            if (selected) {
+                                // Selected date - purple background
+                                bgClass = 'bg-[#6742ED] text-white'
+                                textClass = 'text-white'
+                            } else if (todayCheck) {
+                                // Today's date - blue background
+                                bgClass = 'bg-blue-500 text-white'
+                                textClass = 'text-white'
+                            }
 
                             return (
                                 <div
                                     key={index}
                                     onClick={() => handleDateSelect(date)}
-                                    className={`text-center p-1.5 sm:p-2 rounded-lg min-w-[2.25rem] sm:min-w-[2.5rem] cursor-pointer transition-colors ${today
-                                        ? 'bg-purple-500 text-white'
-                                        : selected
-                                            ? 'bg-blue-500 text-white'
-                                            : 'hover:bg-gray-100'
-                                        }`}
+                                    className={`text-center p-1 rounded-lg min-w-[3rem] cursor-pointer transition-all ${bgClass}`}
                                 >
-                                    <div className={`text-xs ${today || selected
-                                        ? 'text-white opacity-80'
-                                        : 'text-muted-foreground'
-                                        }`}>
+                                    <div className={`text-xs font-medium mb-1 ${textClass}`}>
                                         {DAYS[date.getDay()]}
                                     </div>
-                                    <div className="text-sm font-medium">{date.getDate()}</div>
-                                    {dayEvents.length > 0 && (
-                                        <div className={`w-1 h-1 rounded-full mx-auto mt-1 ${today || selected ? 'bg-white' : 'bg-purple-500'
-                                            }`} />
-                                    )}
+                                    <div className="text-lg font-semibold">{String(date.getDate()).padStart(2, '0')}</div>
+                                    {/* {isEvent && (
+                                        <div className="w-1 h-1 rounded-full mx-auto bg-[#6742ED]" />
+                                    )} */}
                                 </div>
                             )
                         })}
@@ -285,29 +280,26 @@ export function CalendarWidget() {
                 </div>
 
                 <div className="space-y-3">
-                    {selectedDate && (
-                        <div className="flex items-center justify-between mb-2">
-                            <div className="text-sm text-muted-foreground">
-                                Events for {selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
-                            </div>
-                            <Button
-                                variant="ghost"
-                                size="sm"
-                                onClick={() => setSelectedDate(null)}
-                                className="text-xs text-muted-foreground hover:text-foreground"
-                            >
-                                Show All Week
-                            </Button>
-                        </div>
-                    )}
                     {displayEvents.length > 0 ? (
                         displayEvents.map((event) => (
-                            <div key={event.id} className="p-3 rounded-lg border hover:bg-gray-50 transition-colors">
-                                <div className="flex items-center justify-between mb-2">
-                                    <h4 className="font-medium text-sm">{event.title}</h4>
+                            <div key={event.id} className="rounded-xl p-4 bg-[#f5f6ff]">
+                                <div className="flex items-start justify-between mb-3">
+                                    <div>
+                                        <h3 className="font-semibold text-gray-900 mb-1">{event.title}</h3>
+                                        <div className="flex items-center gap-2 text-sm text-gray-600">
+                                            <span>
+                                                {isToday(new Date(event.date))
+                                                    ? 'Today'
+                                                    : new Date(event.date).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })
+                                                }
+                                            </span>
+                                            <span>•</span>
+                                            <span>{event.startTime} - {event.endTime}</span>
+                                        </div>
+                                    </div>
                                     <DropdownMenu>
                                         <DropdownMenuTrigger asChild>
-                                            <Button variant="ghost" size="sm" className="h-6 w-6 p-0">
+                                            <Button variant="ghost" size="sm" className="h-8 w-8 p-0 text-gray-400 hover:text-gray-600">
                                                 <MoreHorizontal className="w-4 h-4" />
                                             </Button>
                                         </DropdownMenuTrigger>
@@ -319,55 +311,54 @@ export function CalendarWidget() {
                                     </DropdownMenu>
                                 </div>
 
-                                <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
-                                    <Clock className="w-3 h-3" />
-                                    <span>{new Date(event.date).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}</span>
-                                    <span>•</span>
-                                    <span>{event.startTime} - {event.endTime}</span>
-                                </div>
-
-                                <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-2">
-                                        <span className="text-sm bg-green-100 text-green-800 px-2 py-1 rounded">
-                                            {getPlatformIcon(event.platform)} {event.platform || event.location || 'In Person'}
+                                <div className="flex items-center justify-between ">
+                                    <div className="flex items-center gap-2 bg-white p-2 rounded-lg">
+                                        {event.platform === "Google Meet" ? (
+                                            <svg className="w-4 h-4 text-green-600" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+                                            </svg>
+                                        ) : event.platform === "Zoom" ? (
+                                            <svg className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                            </svg>
+                                        ) : event.platform === "Microsoft Teams" ? (
+                                            <svg className="w-4 h-4 text-purple-600" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                            </svg>
+                                        ) : (
+                                            <MapPin className="w-4 h-4 text-gray-600" />
+                                        )}
+                                        <span className="text-sm text-gray-700 font-medium">
+                                            {event.platform || event.location || 'In Person'}
                                         </span>
-                                        {event.priority === "High" && (
-                                            <span className="text-xs bg-red-100 text-red-800 px-1.5 py-0.5 rounded">High Priority</span>
-                                        )}
-                                        {event.priority === "Medium" && (
-                                            <span className="text-xs bg-yellow-100 text-yellow-800 px-1.5 py-0.5 rounded">Medium Priority</span>
-                                        )}
-                                        {event.priority === "Low" && (
-                                            <span className="text-xs bg-green-100 text-green-800 px-1.5 py-0.5 rounded">Low Priority</span>
-                                        )}
                                     </div>
 
                                     {event.attendees.length > 0 && (
                                         <div className="flex -space-x-2">
-                                            {event.attendees.slice(0, 3).map((attendee, i) => (
-                                                <Avatar key={attendee.id} className="w-6 h-6 border-2 border-white">
-                                                    <AvatarFallback className="text-xs">
-                                                        {attendee.name.split(' ').map(n => n[0]).join('')}
-                                                    </AvatarFallback>
-                                                </Avatar>
-                                            ))}
-                                            {event.attendees.length > 3 && (
-                                                <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-xs text-white border-2 border-white">
-                                                    +{event.attendees.length - 3}
+                                            {event.attendees.slice(0, 4).map((attendee, i) => {
+                                                const colors = ['bg-orange-500', 'bg-blue-500', 'bg-purple-500', 'bg-green-500'];
+                                                return (
+                                                    <Avatar key={attendee.id} className="w-8 h-8 border-2 border-white">
+                                                        <AvatarImage src={attendee.avatar || "/api/placeholder/32/32"} />
+                                                        <AvatarFallback className={`${colors[i % colors.length]} text-white text-xs`}>
+                                                            {attendee.name.split(' ').map(n => n[0]).join('')}
+                                                        </AvatarFallback>
+                                                    </Avatar>
+                                                );
+                                            })}
+                                            {event.attendees.length > 4 && (
+                                                <div className="w-8 h-8 bg-[#6742ED] rounded-full flex items-center justify-center text-xs text-white font-medium border-2 border-white">
+                                                    +{event.attendees.length - 4}
                                                 </div>
                                             )}
                                         </div>
                                     )}
                                 </div>
-
-                                {event.description && (
-                                    <p className="text-xs text-muted-foreground mt-2 line-clamp-2">{event.description}</p>
-                                )}
                             </div>
                         ))
                     ) : (
-                        <div className="text-center py-8 text-muted-foreground">
-                            <CalendarIcon className="w-8 h-8 mx-auto mb-2 opacity-50" />
+                        <div className="text-center py-8 text-gray-500">
+                            <CalendarDays className="w-8 h-8 mx-auto mb-2 opacity-50" />
                             <p className="text-sm">
                                 {selectedDate
                                     ? 'No events on this date'

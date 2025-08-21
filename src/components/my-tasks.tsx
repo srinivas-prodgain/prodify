@@ -2,16 +2,17 @@
 
 import { useState, useMemo } from "react"
 import {
-    CheckCircle2,
     ChevronDown,
     ChevronUp,
     Plus,
-    MoreHorizontal
+    MoreHorizontal,
+    ClipboardList,
+    Maximize2
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
-import TaskItem from "@/components/task-item"
+import { TasksTable } from "@/components/tasks-table"
 import { TTask } from "@/types/ui"
 
 
@@ -51,84 +52,84 @@ export function MyTasks() {
         <Card className="rounded-xl border shadow-sm">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
                 <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-5 h-5" />
-                    <CardTitle className="text-lg font-semibold">My Tasks</CardTitle>
+                    <ClipboardList className="w-6 h-6 text-[#8379c9]" strokeWidth={2} />
+                    <CardTitle className="text-lg font-[580]">My Tasks</CardTitle>
                 </div>
                 <div className="flex items-center gap-2">
                     <Button
                         variant="ghost"
                         size="sm"
-                        className="text-muted-foreground hover:text-foreground"
+                        className="text-black hover:bg-purple-50 hover:text-[#6742ED]"
                         onClick={handleAddTask}
                     >
-                        <Plus className="w-4 h-4 mr-2" />
-                        Add task
+                        <Plus className="w-4 h-4" strokeWidth={2}/>
                     </Button>
+                    <Button variant="ghost" size="sm" className="text-black hover:bg-purple-50 hover:text-[#6742ED]">
+                        <Maximize2 className="w-4 h-4" strokeWidth={2}/>
+                    </Button>
+
                     <Button
                         variant="ghost"
                         size="sm"
-                        className="text-muted-foreground hover:text-foreground"
+                        className="text-black hover:bg-purple-50 hover:text-[#6742ED] "
                         onClick={() => handleTaskAction(0, 'menu')}
                     >
-                        <MoreHorizontal className="w-4 h-4" />
+                        <MoreHorizontal className="w-4 h-4" strokeWidth={2}/>
                     </Button>
                 </div>
             </CardHeader>
             <CardContent className="space-y-3">
-                <Collapsible open={isInProgressOpen} onOpenChange={setIsInProgressOpen}>
+                <Collapsible open={isInProgressOpen} onOpenChange={setIsInProgressOpen} >
                     <CollapsibleTrigger asChild>
-                        <Button variant="ghost" className="w-full justify-between p-0 h-auto">
+                        <Button variant="ghost" className="w-full justify-between p-0 h-auto hover:bg-purple-50 hover:text-[#6742ED] py-2">
                             <div className="flex items-center gap-2">
                                 {isInProgressOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                                <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">
+                                <span className="bg-[#abedee] px-2 py-1 rounded text-xs font-[580] text-black">
                                     IN PROGRESS
                                 </span>
+                                <span className="text-sm text-muted-foreground">•</span>
                                 <span className="text-sm text-muted-foreground">{groupedTasks.inProgress.length} tasks</span>
                             </div>
                         </Button>
                     </CollapsibleTrigger>
-                    <CollapsibleContent className="space-y-2 mt-3">
-                        {groupedTasks.inProgress.map((task) => (
-                            <TaskItem key={task.id} task={task} />
-                        ))}
+                    <CollapsibleContent className="mt-3">
+                        <TasksTable tasks={groupedTasks.inProgress} />
                     </CollapsibleContent>
                 </Collapsible>
 
                 <Collapsible open={isToDoOpen} onOpenChange={setIsToDoOpen}>
                     <CollapsibleTrigger asChild>
-                        <Button variant="ghost" className="w-full justify-between p-0 h-auto">
+                        <Button variant="ghost" className="w-full justify-between p-0 h-auto hover:bg-purple-50 hover:text-[#6742ED] py-2">
                             <div className="flex items-center gap-2">
                                 {isToDoOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                                <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">
+                                <span className="bg-[#f2f3f7] px-2 py-1 rounded text-xs font-[580] text-black">
                                     TO DO
                                 </span>
+                                <span className="text-sm text-muted-foreground">•</span>
                                 <span className="text-sm text-muted-foreground">{groupedTasks.toDo.length} tasks</span>
                             </div>
                         </Button>
                     </CollapsibleTrigger>
-                    <CollapsibleContent className="space-y-2 mt-3">
-                        {groupedTasks.toDo.map((task) => (
-                            <TaskItem key={task.id} task={task} />
-                        ))}
+                    <CollapsibleContent className="mt-3">
+                        <TasksTable tasks={groupedTasks.toDo} />
                     </CollapsibleContent>
                 </Collapsible>
 
                 <Collapsible open={isUpcomingOpen} onOpenChange={setIsUpcomingOpen}>
                     <CollapsibleTrigger asChild>
-                        <Button variant="ghost" className="w-full justify-between p-0 h-auto">
+                        <Button variant="ghost" className="w-full justify-between p-0 h-auto hover:bg-purple-50 hover:text-[#6742ED] py-2">
                             <div className="flex items-center gap-2">
                                 {isUpcomingOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                                <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs font-medium">
+                                <span className="bg-[#f9d3b0] px-2 py-1 rounded text-xs font-[580] text-black">
                                     UPCOMING
                                 </span>
+                                <span className="text-sm text-muted-foreground">•</span>
                                 <span className="text-sm text-muted-foreground">{groupedTasks.upcoming.length} tasks</span>
                             </div>
                         </Button>
                     </CollapsibleTrigger>
-                    <CollapsibleContent className="space-y-2 mt-3">
-                        {groupedTasks.upcoming.map((task) => (
-                            <TaskItem key={task.id} task={task} />
-                        ))}
+                    <CollapsibleContent className="mt-3">
+                        <TasksTable tasks={groupedTasks.upcoming} />
                     </CollapsibleContent>
                 </Collapsible>
             </CardContent>

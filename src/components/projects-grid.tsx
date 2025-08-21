@@ -3,7 +3,11 @@
 import { useState } from "react"
 import {
     ChevronDown,
-    Plus
+    Diamond,
+    FolderKanban,
+    Plus,
+    Rocket,
+    Brain
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -17,9 +21,9 @@ import { FilterOptions, TFilterOption, TProject } from "@/types/ui"
 
 
 const projects: TProject[] = [
-    { id: 1, name: "Product launch", tasks: 6, teammates: 12, color: "bg-purple-100", icon: "🚀" },
-    { id: 2, name: "Team brainstorm", tasks: 2, teammates: 32, color: "bg-blue-100", icon: "💙" },
-    { id: 3, name: "Branding launch", tasks: 4, teammates: 9, color: "bg-cyan-100", icon: "💎" }
+    { id: 1, name: "Product launch", tasks: 6, teammates: 12, color: "bg-purple-100", icon: <Rocket className="w-6 h-6 text-purple-500" strokeWidth={2} /> },
+    { id: 2, name: "Team brainstorm", tasks: 2, teammates: 32, color: "bg-blue-100", icon: <Brain className="w-6 h-6 text-blue-500" strokeWidth={2} /> },
+    { id: 3, name: "Branding launch", tasks: 4, teammates: 9, color: "bg-cyan-100", icon: <Diamond className="w-6 h-6 text-cyan-500" strokeWidth={2} /> }
 ]
 
 export function ProjectsGrid() {
@@ -42,11 +46,11 @@ export function ProjectsGrid() {
         <Card className="rounded-xl border shadow-sm">
             <CardHeader className="flex flex-row items-center justify-between space-y-0">
                 <div className="flex items-center gap-2">
-                    <span className="text-lg">📁</span>
-                    <CardTitle className="text-lg font-semibold">Projects</CardTitle>
+                    <FolderKanban className="w-6 h-6 text-[#8379c9]" strokeWidth={2}/>
+                    <CardTitle className="text-lg font-[580]">Projects</CardTitle>
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" size="sm" className="text-sm text-muted-foreground">
+                            <Button variant="ghost" size="sm" className="text-sm text-muted-foreground hover:bg-purple-50 hover:text-[#6742ED]">
                                 {selectedFilter}
                                 <ChevronDown className="w-4 h-4 ml-1" />
                             </Button>
@@ -68,24 +72,26 @@ export function ProjectsGrid() {
             <CardContent>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div
-                        className="border-2 border-dashed border-gray-300 rounded-lg p-3 flex flex-col items-center justify-center h-16 hover:bg-gray-50 cursor-pointer transition-colors"
+                        className="rounded-lg p-3 pl-0 flex items-center justify-start h-16 transition-colors cursor-pointer gap-3"
                         onClick={handleCreateProject}
                     >
-                        <Plus className="w-6 h-6 text-gray-400 mb-1" />
-                        <span className="text-sm font-medium text-gray-600">Create new project</span>
+                        <div className="w-10 h-10 rounded-lg flex items-center justify-center text-lg flex-shrink-0 border-2  border-dashed  border-[#6742ED]">
+                            <Plus className="w-4 h-4 text-[#6742ED]" strokeWidth={1.8} />
+                        </div>
+                        <span className="text-sm font-semibold text-gray-600 ">Create new project</span>
                     </div>
 
                     {projects.map((project) => (
                         <div
                             key={project.id}
-                            className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 border h-16 cursor-pointer transition-colors"
+                            className="flex items-center gap-3 p-3 pl-0 rounded-lg hover:bg-gray-50 h-16 transition-colors"
                             onClick={() => handleProjectClick(project.id)}
                         >
                             <div className={`w-10 h-10 rounded-lg ${project.color} flex items-center justify-center text-lg flex-shrink-0`}>
                                 {project.icon}
                             </div>
                             <div className="flex-1 min-w-0">
-                                <h4 className="font-medium text-sm leading-tight">{project.name}</h4>
+                                <h4 className="font-semibold text-sm leading-tight">{project.name}</h4>
                                 <p className="text-xs text-muted-foreground mt-1">
                                     {project.tasks} tasks • {project.teammates} teammates
                                 </p>

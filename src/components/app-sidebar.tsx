@@ -7,10 +7,10 @@ import {
   GalleryVerticalEnd,
   Sparkles,
   Home,
-  List,
   Inbox,
-  Calendar,
-  BarChart,
+  CalendarDays,
+  ClipboardList,
+  ChartColumnStacked,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -29,6 +29,7 @@ import { Separator } from "./ui/separator"
 import m1 from "../../public/m1.jpg"
 import m2 from "../../public/m2.webp"
 import m3 from "../../public/m3.jpg"
+import m4 from "../../public/m1-bgr.png"
 
 // This is sample data.
 const data = {
@@ -40,21 +41,24 @@ const data = {
   teams: [
     {
       name: "Courtney Henry",
-      image: m1,
+      image: m4,
       logo: GalleryVerticalEnd,
       plan: "Enterprise",
+      status: "online",
     },
     {
       name: "Acme Corp.",
       image: m2,
       logo: AudioWaveform,
       plan: "Startup",
+      status: "offline",
     },
     {
       name: "Evil Corp.",
       image: m3,
       logo: Command,
       plan: "Free",
+      status: "away",
     },
   ],
   navMain: [
@@ -72,7 +76,7 @@ const data = {
     {
       title: "My tasks",
       url: "#",
-      icon: List
+      icon: ClipboardList
     },
     {
       title: "Inbox",
@@ -82,12 +86,12 @@ const data = {
     {
       title: "Calendar",
       url: "#",
-      icon: Calendar
+      icon: CalendarDays 
     },
     {
       title: "Reports & Analytics",
       url: "#",
-      icon: BarChart
+      icon: ChartColumnStacked
     },
   ],
   projects: [

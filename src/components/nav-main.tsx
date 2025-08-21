@@ -29,7 +29,7 @@ export function NavMain({
       <SidebarMenu>
         {items.map((item, index) => (
           <SidebarMenuItem key={index}>
-            <SidebarMenuButton tooltip={item.title} className={`cursor-pointer p-4 mt-2 ${item.isActive ? "bg-[#d3aaff] text-[#ac45ff]" : ""}`}>
+            <SidebarMenuButton tooltip={item.title} className={`p-3 mt-1 ${item.isActive ? "bg-[#f5f4ff] text-[#5754ac] font-[550]" : ""} hover:bg-[#f5f4ff] hover:text-[#5754ac] cursor-pointer`}>
               {item.icon && <item.icon className="mr-2" />}
               <span className="text-sm text-black">{item.title}</span>
             </SidebarMenuButton>

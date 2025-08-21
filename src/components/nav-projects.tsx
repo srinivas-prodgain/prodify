@@ -26,19 +26,19 @@ export function NavProjects({
         <Button
           variant="ghost"
           size="sm"
-          className="h-6 px-2 text-xs font-medium text-[#ac45ff] hover:bg-[#d3aaff] hover:text-[#ac45ff] hover:border-[#ac45ff]"
+          className="h-6 px-2 text-xs font-medium text-[#6d67c1] bg-[#f4f7ff] hover:bg-[#f5f4ff] hover:text-[#ac45ff] hover:border-[#ac45ff] rounded-lg p-4"
         >
-          <Plus className="w-3 h-3 mr-1" />
-          <span className="text-sm text-black">Add</span>
+          <Plus className="w-3 h-3 " strokeWidth={2.8} />
+          <span className="text-sm font-medium">Add</span>
         </Button>
       </div>
       <SidebarMenu>
         {projects.map((item) => (
           <SidebarMenuItem key={item.name} >
-            <SidebarMenuButton asChild className="cursor-pointer p-4 mt-1 hover:bg-[#d3aaff] hover:text-[#ac45ff]">
+            <SidebarMenuButton asChild className="p-4 mt-1 hover:bg-[#f5f4ff] cursor-pointer">
               <a href={item.url} className="flex items-center gap-3">
-                <div
-                  className="w-2 h-2 rounded-full flex-shrink-0"
+                <div    
+                  className="w-3 h-3 flex-shrink-0 rounded-xs"
                   style={{ backgroundColor: item.color }}
                 />
                 <span>{item.name}</span>
