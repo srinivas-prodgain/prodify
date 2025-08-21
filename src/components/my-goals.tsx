@@ -20,22 +20,23 @@ export function MyGoals() {
     }
 
     return (
-        <Card className="rounded-xl border shadow-sm">
-            <CardHeader>
+        <Card className="rounded-xl border shadow-sm py-4 gap-2">
+            <CardHeader className="pb-3 max-[560px]:pb-2">
                 <div className="flex items-center gap-2">
-                    <Goal className="w-6 h-6 text-[#8379c9]" strokeWidth={2} />
-                    <CardTitle className="text-lg font-[580]">My Goals</CardTitle>
+                    <Goal className="text-[#8379c9] size-5" strokeWidth={2} />
+                    <CardTitle className="text-lg font-[580] max-[560px]:text-base">My Goals</CardTitle>
                 </div>
             </CardHeader>
-            <CardContent className="space-y-4 ">
+            <CardContent className="space-y-4 max-[560px]:space-y-3">
                 {goals.length > 0 ? (
                     goals.map((goal) => (
                         <div
                             key={goal.id}
-                            className="hover:bg-gray-50 p-2 rounded-lg transition-colors"
+                            className="hover:bg-gray-50 p-2 pl-0 rounded-lg transition-colors cursor-pointer"
                             onClick={() => handleGoalClick(goal.id)}
                         >
-                            <div className="flex items-start gap-4">
+                            {/* Desktop layout (≥560px) */}
+                            <div className="hidden min-[560px]:flex items-start gap-4">
                                 <div className="flex-1">
                                     <h4 className="font-[580] text-md leading-tight">{goal.name}</h4>
                                     <p className="text-[14px] text-[#a5a5a5] mt-1">
@@ -49,10 +50,33 @@ export function MyGoals() {
                                         className="h-2"
                                     />
                                 </div>
-
                                 <span className="text-[15px] font-[580] text-foreground min-w-[40px] text-right">
                                     {goal.progress}%
                                 </span>
+                            </div>
+
+                            {/* Mobile layout (<560px) */}
+                            <div className="block min-[560px]:hidden">
+                                {/* First row: Goal text and percentage */}
+                                <div className="flex items-start justify-between gap-3 mb-2">
+                                    <div className="flex-1 min-w-0">
+                                        <h4 className="font-[580] text-sm leading-tight truncate">{goal.name}</h4>
+                                        <p className="text-[13px] text-[#a5a5a5] mt-0.5 truncate">
+                                            {goal.project} • My Projects
+                                        </p>
+                                    </div>
+                                    <span className="text-[15px] font-[580] text-foreground ml-2 flex-shrink-0">
+                                        {goal.progress}%
+                                    </span>
+                                </div>
+
+                                {/* Second row: Progress bar */}
+                                <div className="w-full">
+                                    <Progress
+                                        value={goal.progress}
+                                        className="h-2"
+                                    />
+                                </div>
                             </div>
                         </div>
                     ))

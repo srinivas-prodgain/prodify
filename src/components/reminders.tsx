@@ -69,10 +69,10 @@ export function Reminders() {
     const todayReminders = reminders.filter(reminder => reminder.isToday)
 
     return (
-        <Card className="rounded-xl border shadow-sm">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
+        <Card className="rounded-xl border shadow-sm py-4">
+            <CardHeader className="flex flex-row items-center justify-between">
                 <div className="flex items-center gap-2">
-                    <Timer className="w-6 h-6 text-[#8379c9]" strokeWidth={2} />
+                    <Timer className="text-[#8379c9] size-5" strokeWidth={2} />
                     <CardTitle className="text-lg font-[580]">Reminders</CardTitle>
                 </div>
             </CardHeader>
@@ -87,7 +87,7 @@ export function Reminders() {
                             >
                                 <div className="flex items-center gap-2">
                                     {isTodayOpen ? (
-                                        <ChevronDown strokeWidth={2.5} height={30} width={30}  />
+                                        <ChevronDown strokeWidth={2.5} height={30} width={30} />
                                     ) : (
                                         <ChevronUp strokeWidth={2.5} height={30} width={30} />
                                     )}

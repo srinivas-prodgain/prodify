@@ -7,7 +7,8 @@ import {
     FolderKanban,
     Plus,
     Rocket,
-    Brain
+    Brain,
+    Briefcase
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -43,10 +44,10 @@ export function ProjectsGrid() {
     }
 
     return (
-        <Card className="rounded-xl border shadow-sm">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0">
+        <Card className="rounded-xl border shadow-sm py-4">
+            <CardHeader className="flex flex-row items-center justify-between">
                 <div className="flex items-center gap-2">
-                    <FolderKanban className="w-6 h-6 text-[#8379c9]" strokeWidth={2}/>
+                    <Briefcase className="text-[#8379c9] size-5" strokeWidth={2} />
                     <CardTitle className="text-lg font-[580]">Projects</CardTitle>
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
@@ -75,24 +76,24 @@ export function ProjectsGrid() {
                         className="rounded-lg p-3 pl-0 flex items-center justify-start h-16 transition-colors cursor-pointer gap-3"
                         onClick={handleCreateProject}
                     >
-                        <div className="w-10 h-10 rounded-lg flex items-center justify-center text-lg flex-shrink-0 border-2  border-dashed  border-[#6742ED]">
+                        <div className="w-12 h-12 rounded-lg flex items-center justify-center text-lg flex-shrink-0 border-2  border-dashed  border-[#6742ED]">
                             <Plus className="w-4 h-4 text-[#6742ED]" strokeWidth={1.8} />
                         </div>
-                        <span className="text-sm font-semibold text-gray-600 ">Create new project</span>
+                        <span className="text-[16px] font-[600] text-gray-600 ">Create new project</span>
                     </div>
 
                     {projects.map((project) => (
                         <div
                             key={project.id}
-                            className="flex items-center gap-3 p-3 pl-0 rounded-lg hover:bg-gray-50 h-16 transition-colors"
+                            className="flex items-center gap-3 p-3 pl-0 rounded-lg hover:bg-gray-50 h-16 transition-colors cursor-pointer"
                             onClick={() => handleProjectClick(project.id)}
                         >
-                            <div className={`w-10 h-10 rounded-lg ${project.color} flex items-center justify-center text-lg flex-shrink-0`}>
+                            <div className={`w-12 h-12 rounded-lg ${project.color} flex items-center justify-center text-lg flex-shrink-0`}>
                                 {project.icon}
                             </div>
                             <div className="flex-1 min-w-0">
-                                <h4 className="font-semibold text-sm leading-tight">{project.name}</h4>
-                                <p className="text-xs text-muted-foreground mt-1">
+                                <h4 className="font-[600] text-[16px] leading-tight">{project.name}</h4>
+                                <p className="text-[14px] text-gray-400 mt-1">
                                     {project.tasks} tasks • {project.teammates} teammates
                                 </p>
                             </div>

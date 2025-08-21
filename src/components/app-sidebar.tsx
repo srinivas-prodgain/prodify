@@ -26,7 +26,6 @@ import {
 } from "@/components/ui/sidebar"
 import { Separator } from "./ui/separator"
 
-import m1 from "../../public/m1.jpg"
 import m2 from "../../public/m2.webp"
 import m3 from "../../public/m3.jpg"
 import m4 from "../../public/m1-bgr.png"

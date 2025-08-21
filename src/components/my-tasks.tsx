@@ -49,10 +49,10 @@ export function MyTasks() {
     }
 
     return (
-        <Card className="rounded-xl border shadow-sm">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
+        <Card className="rounded-xl border shadow-sm py-4">
+            <CardHeader className="flex flex-row items-center justify-between">
                 <div className="flex items-center gap-2">
-                    <ClipboardList className="w-6 h-6 text-[#8379c9]" strokeWidth={2} />
+                    <ClipboardList className="text-[#8379c9] size-5" strokeWidth={2} />
                     <CardTitle className="text-lg font-[580]">My Tasks</CardTitle>
                 </div>
                 <div className="flex items-center gap-2">

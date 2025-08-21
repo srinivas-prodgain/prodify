@@ -31,7 +31,7 @@ export function TeamSwitcher({
     status: string
   }[]
 }) {
-  const { isMobile } = useSidebar()
+  const { isMobile, open } = useSidebar()
   const [activeTeam, setActiveTeam] = React.useState(teams[0])
 
   if (!activeTeam) {
@@ -45,9 +45,9 @@ export function TeamSwitcher({
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton
               size="lg"
-              className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground border-[1.2px] border-gray-120 rounded-lg"
+              className={`data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground border-gray-120 rounded-lg overflow-visible ${open ? 'border-[1.2px]' : ''}`}
             >
-              <div className="text-sidebar-primary-foreground flex items-center justify-center rounded-full mr-2 relative bg-[#ded1f1] h-8 w-8">
+              <div className="text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-full mr-2 relative bg-[#ded1f1] h-8 w-8">
                 <div className="w-full h-full flex items-center justify-center overflow-hidden rounded-full">
                   <Image src={activeTeam.image} alt={activeTeam.name} width={32} height={32} className="w-full h-full object-cover rounded-full mt-2" />
                 </div>
@@ -57,7 +57,7 @@ export function TeamSwitcher({
                 <span className="truncate font-medium text-lg">{activeTeam.name}</span>
                 <span className="truncate text-xs text-gray-500">{activeTeam.status === "online" ? "Online" : activeTeam.status === "away" ? "Away" : "Offline"}</span>
               </div>
-              <ChevronDown className="ml-auto" color="#a5a5a5" strokeWidth={2.5} height={25} width={25} />
+              <ChevronDown className={`ml-auto ${!open && 'hidden'}`} color="#a5a5a5" strokeWidth={2.5} height={25} width={25} />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
