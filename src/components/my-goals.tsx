@@ -40,22 +40,22 @@ export function MyGoals() {
                             <TooltipTrigger asChild>
                                 <div
                                     key={goal.id}
-                                    className="hover:bg-gray-50 p-2 pl-0 rounded-lg transition-colors cursor-pointer"
+                                    className="p-2 pl-0 rounded-lg transition-colors cursor-pointer"
                                     onClick={() => handleGoalClick(goal.id)}
                                 >
                                     {/* Desktop layout (≥560px) */}
                                     <div className="hidden min-[560px]:flex items-start gap-4">
                                         <div className="flex-1">
                                             <h4 className="font-[580] text-md leading-tight">{goal.name}</h4>
-                                            <p className="text-[14px] text-[#a5a5a5] mt-1">
+                                            <p className="text-[14px] text-[#b9b9b9]">
                                                 {goal.project} • My Projects
                                             </p>
                                         </div>
 
-                                        <div className="flex-1 max-w-[100px] mt-2">
+                                        <div className="flex-1 max-w-[80px] mt-2">
                                             <Progress
                                                 value={goal.progress}
-                                                className="h-2"
+                                                className="h-2 ml-2"
                                             />
                                         </div>
                                         <span className="text-[15px] font-[580] text-foreground min-w-[40px] text-right">

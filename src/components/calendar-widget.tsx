@@ -8,6 +8,7 @@ import {
     ChevronRight,
     MoreHorizontal,
     MapPin,
+    Plus,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -76,12 +77,6 @@ const events: TCalendarEvent[] = [
             { id: 10, name: "Alex Rodriguez", avatar: "https://res.cloudinary.com/dwhuwudg9/image/upload/v1755782676/1-intro-photo-final-removebg-preview_udgdah.png" },
             { id: 11, name: "Alex Rodriguez", avatar: "https://res.cloudinary.com/dwhuwudg9/image/upload/v1755782676/1-intro-photo-final-removebg-preview_udgdah.png" },
             { id: 12, name: "Alex Rodriguez", avatar: "https://res.cloudinary.com/dwhuwudg9/image/upload/v1755782676/1-intro-photo-final-removebg-preview_udgdah.png" },
-            { id: 13, name: "Alex Rodriguez", avatar: "https://res.cloudinary.com/dwhuwudg9/image/upload/v1755782676/1-intro-photo-final-removebg-preview_udgdah.png" },
-            { id: 14, name: "Alex Rodriguez", avatar: "https://res.cloudinary.com/dwhuwudg9/image/upload/v1755782676/1-intro-photo-final-removebg-preview_udgdah.png" },
-            { id: 15, name: "Alex Rodriguez", avatar: "https://res.cloudinary.com/dwhuwudg9/image/upload/v1755782676/1-intro-photo-final-removebg-preview_udgdah.png" },
-            { id: 16, name: "Alex Rodriguez", avatar: "https://res.cloudinary.com/dwhuwudg9/image/upload/v1755782676/1-intro-photo-final-removebg-preview_udgdah.png" },
-            { id: 17, name: "Alex Rodriguez", avatar: "https://res.cloudinary.com/dwhuwudg9/image/upload/v1755782676/1-intro-photo-final-removebg-preview_udgdah.png" },
-            { id: 18, name: "Alex Rodriguez", avatar: "https://res.cloudinary.com/dwhuwudg9/image/upload/v1755782676/1-intro-photo-final-removebg-preview_udgdah.png" },
         ],
         description: "Weekly check-in and performance review",
         priority: "Medium"
@@ -254,11 +249,11 @@ export function CalendarWidget() {
         <Card className="rounded-xl border py-4 shadow-none">
             <CardHeader className="flex flex-row items-center justify-between">
                 <div className="flex items-center gap-2">
-                    <CalendarDays className="text-[#8379c9] size-5" strokeWidth={2} />
-                    <CardTitle className="text-lg font-[580]">Calendar</CardTitle>
+                    <CalendarDays className="text-[#8379c9] size-5 mr-[4px]" strokeWidth={2} />
+                    <CardTitle className="text-lg font-[580] mr-[5px]">Calendar</CardTitle>
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" size="sm" className="text-sm text-muted-foreground hover:bg-purple-50 hover:text-[#6742ED]">
+                            <Button variant="ghost" size="sm" className="text-sm text-black hover:bg-purple-50 flex items-center gap-0 font-[550]">
                                 {MONTHS[selectedMonth]}
                                 <ChevronDown className="w-4 h-4 ml-1" />
                             </Button>
@@ -296,7 +291,7 @@ export function CalendarWidget() {
 
                             if (selected) {
                                 // Selected date - purple background
-                                bgClass = 'bg-[#6742ED] text-white'
+                                bgClass = 'bg-[#736edf] text-white'
                                 textClass = 'text-white'
                             } else if (todayCheck) {
                                 // Today's date - blue background
@@ -315,7 +310,7 @@ export function CalendarWidget() {
                                     </div>
                                     <div className="text-lg font-semibold">{String(date.getDate()).padStart(2, '0')}</div>
                                     {isEvent && (
-                                        <div className="w-1 h-1 rounded-full mx-auto bg-[#6742ED] absolute bottom-0 left-1/2 -translate-x-1/2" />
+                                        <div className="w-1 h-1 rounded-full mx-auto bg-[#736edf] absolute bottom-0 left-1/2 -translate-x-1/2" />
                                     )}
                                 </div>
                             )
@@ -331,7 +326,7 @@ export function CalendarWidget() {
                 <div className="space-y-3 mt-3 px-[24px]">
                     {displayEvents.length > 0 ? (
                         displayEvents.map((event) => (
-                            <div key={event.id} className="rounded-xl p-4 bg-[#f5f6ff]">
+                            <div key={event.id} className="rounded-xl p-4 bg-[#f5f6ff] md:p-7">
                                 <div className="flex items-start justify-between mb-3">
                                     <div>
                                         <h3 className="font-semibold text-gray-900 mb-1">{event.title}</h3>
@@ -361,7 +356,7 @@ export function CalendarWidget() {
                                 </div>
 
                                 <div className="flex items-center justify-between ">
-                                    <div className="flex items-center gap-2 bg-white py-1 px-3 rounded-full">
+                                    <div className="flex items-center gap-2 bg-white py-1 px-2 rounded-full md:py-1 md:px-3 ">
                                         {event.platform === "Google Meet" ? (
                                             <svg width="25px" height="25px" viewBox="-3.2 -3.2 38.40 38.40" fill="none" xmlns="http://www.w3.org/2000/svg" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                                                 <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" stroke="#CCCCCC" strokeWidth="0.8320000000000001"></g><g id="SVGRepo_iconCarrier">
@@ -412,7 +407,7 @@ export function CalendarWidget() {
                                         ) : (
                                             <MapPin className="w-4 h-4 text-gray-600" />
                                         )}
-                                        <span className="text-[15px] text-gray-800 font-medium">
+                                        <span className="text-[13px] text-gray-800 font-medium md:text-[15px]">
                                             {event.platform || event.location || 'In Person'}
                                         </span>
                                     </div>
@@ -423,7 +418,7 @@ export function CalendarWidget() {
                                                 i < 4 ? (
                                                     <div
                                                         key={i}
-                                                        className={`text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-full relative bg-[#ded1f1] h-8 w-8 overflow-hidden border-[2.5px] border-white ${i > 0 ? 'ml-[-8px]' : ''}`}
+                                                        className={`text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-full relative bg-[#ded1f1] h-8 w-8 overflow-hidden border-[2.7px] border-white ${i > 0 ? 'ml-[-8px]' : ''}`}
                                                     >
                                                         <Image
                                                             src={attendee.avatar || ''}
@@ -436,11 +431,14 @@ export function CalendarWidget() {
                                                 ) : i === 4 ? (
                                                     <div
                                                         key={i}
-                                                        className={`text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-full relative bg-[#6c39d3] h-8 w-8 overflow-hidden border-[2px] border-white ${i > 0 ? 'ml-[-8px]' : ''}`}
+                                                        className={`text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-full relative bg-[#6c39d3] h-8 w-8 overflow-hidden border-0 ${i > 0 ? 'ml-[-8px]' : ''}`}
                                                     >
-                                                        <span className="text-white text-xs font-medium">
-                                                            +{event.attendees.length - 4}
-                                                        </span>
+                                                        <div className="flex items-center justify-center gap-[1px]">
+                                                            <Plus className="size-2 text-white" strokeWidth={3} />
+                                                            <span className="text-white text-[12px] font-[450]">
+                                                                {event.attendees.length - 4}
+                                                            </span>
+                                                        </div>
                                                     </div>
                                                 ) : null
                                             ))}
