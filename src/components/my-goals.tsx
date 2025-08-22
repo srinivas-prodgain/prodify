@@ -5,6 +5,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { TGoal } from "@/types/ui"
 
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
+
 // Internal dummy data
 const goals: TGoal[] = [
     { id: 1, name: "Check Emails and Messages", project: "Product launch", progress: 73, color: "bg-cyan-500" },
@@ -20,7 +26,7 @@ export function MyGoals() {
     }
 
     return (
-        <Card className="rounded-xl border shadow-sm py-4 gap-2">
+        <Card className="rounded-xl border py-4 gap-2 shadow-none">
             <CardHeader className="pb-3 max-[560px]:pb-2">
                 <div className="flex items-center gap-2">
                     <Goal className="text-[#8379c9] size-5" strokeWidth={2} />
@@ -30,55 +36,62 @@ export function MyGoals() {
             <CardContent className="space-y-4 max-[560px]:space-y-3">
                 {goals.length > 0 ? (
                     goals.map((goal) => (
-                        <div
-                            key={goal.id}
-                            className="hover:bg-gray-50 p-2 pl-0 rounded-lg transition-colors cursor-pointer"
-                            onClick={() => handleGoalClick(goal.id)}
-                        >
-                            {/* Desktop layout (≥560px) */}
-                            <div className="hidden min-[560px]:flex items-start gap-4">
-                                <div className="flex-1">
-                                    <h4 className="font-[580] text-md leading-tight">{goal.name}</h4>
-                                    <p className="text-[14px] text-[#a5a5a5] mt-1">
-                                        {goal.project} • My Projects
-                                    </p>
-                                </div>
+                        <Tooltip key={goal.id} delayDuration={500}>
+                            <TooltipTrigger asChild>
+                                <div
+                                    key={goal.id}
+                                    className="hover:bg-gray-50 p-2 pl-0 rounded-lg transition-colors cursor-pointer"
+                                    onClick={() => handleGoalClick(goal.id)}
+                                >
+                                    {/* Desktop layout (≥560px) */}
+                                    <div className="hidden min-[560px]:flex items-start gap-4">
+                                        <div className="flex-1">
+                                            <h4 className="font-[580] text-md leading-tight">{goal.name}</h4>
+                                            <p className="text-[14px] text-[#a5a5a5] mt-1">
+                                                {goal.project} • My Projects
+                                            </p>
+                                        </div>
 
-                                <div className="flex-1 max-w-[100px] mt-2">
-                                    <Progress
-                                        value={goal.progress}
-                                        className="h-2"
-                                    />
-                                </div>
-                                <span className="text-[15px] font-[580] text-foreground min-w-[40px] text-right">
-                                    {goal.progress}%
-                                </span>
-                            </div>
-
-                            {/* Mobile layout (<560px) */}
-                            <div className="block min-[560px]:hidden">
-                                {/* First row: Goal text and percentage */}
-                                <div className="flex items-start justify-between gap-3 mb-2">
-                                    <div className="flex-1 min-w-0">
-                                        <h4 className="font-[580] text-sm leading-tight truncate">{goal.name}</h4>
-                                        <p className="text-[13px] text-[#a5a5a5] mt-0.5 truncate">
-                                            {goal.project} • My Projects
-                                        </p>
+                                        <div className="flex-1 max-w-[100px] mt-2">
+                                            <Progress
+                                                value={goal.progress}
+                                                className="h-2"
+                                            />
+                                        </div>
+                                        <span className="text-[15px] font-[580] text-foreground min-w-[40px] text-right">
+                                            {goal.progress}%
+                                        </span>
                                     </div>
-                                    <span className="text-[15px] font-[580] text-foreground ml-2 flex-shrink-0">
-                                        {goal.progress}%
-                                    </span>
-                                </div>
 
-                                {/* Second row: Progress bar */}
-                                <div className="w-full">
-                                    <Progress
-                                        value={goal.progress}
-                                        className="h-2"
-                                    />
+                                    {/* Mobile layout (<560px) */}
+                                    <div className="block min-[560px]:hidden">
+                                        {/* First row: Goal text and percentage */}
+                                        <div className="flex items-start justify-between gap-3 mb-2">
+                                            <div className="flex-1 min-w-0">
+                                                <h4 className="font-[580] text-sm leading-tight truncate">{goal.name}</h4>
+                                                <p className="text-[13px] text-[#a5a5a5] mt-0.5 truncate">
+                                                    {goal.project} • My Projects
+                                                </p>
+                                            </div>
+                                            <span className="text-[15px] font-[580] text-foreground ml-2 flex-shrink-0">
+                                                {goal.progress}%
+                                            </span>
+                                        </div>
+
+                                        {/* Second row: Progress bar */}
+                                        <div className="w-full">
+                                            <Progress
+                                                value={goal.progress}
+                                                className="h-2"
+                                            />
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                            </TooltipTrigger>
+                            <TooltipContent side="top-left" sideOffset={8} >
+                                <p className="text-sm font-medium leading-relaxed">{goal.name}</p>
+                            </TooltipContent>
+                        </Tooltip>
                     ))
                 ) : (
                     <div className="text-center py-8 text-muted-foreground">

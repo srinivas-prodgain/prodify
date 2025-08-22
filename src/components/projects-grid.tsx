@@ -44,7 +44,7 @@ export function ProjectsGrid() {
     }
 
     return (
-        <Card className="rounded-xl border shadow-sm py-4">
+        <Card className="rounded-xl border py-4 shadow-none">
             <CardHeader className="flex flex-row items-center justify-between">
                 <div className="flex items-center gap-2">
                     <Briefcase className="text-[#8379c9] size-5" strokeWidth={2} />
@@ -76,7 +76,13 @@ export function ProjectsGrid() {
                         className="rounded-lg p-3 pl-0 flex items-center justify-start h-16 transition-colors cursor-pointer gap-3"
                         onClick={handleCreateProject}
                     >
-                        <div className="w-12 h-12 rounded-lg flex items-center justify-center text-lg flex-shrink-0 border-2  border-dashed  border-[#6742ED]">
+                        <div
+                            className="w-12 h-12 rounded-2xl flex items-center justify-center text-lg flex-shrink-0"
+                            style={{
+                                backgroundImage:
+                                    'url("data:image/svg+xml,%3csvg width=\'100%25\' height=\'100%25\' xmlns=\'http://www.w3.org/2000/svg\'%3e%3crect width=\'100%25\' height=\'100%25\' fill=\'none\' rx=\'15\' ry=\'15\' stroke=\'%236742EDFF\' stroke-width=\'3\' stroke-dasharray=\'4%2c8\' stroke-dashoffset=\'56\' stroke-linecap=\'square\'/%3e%3c/svg%3e")',
+                            }}
+                        >
                             <Plus className="w-4 h-4 text-[#6742ED]" strokeWidth={1.8} />
                         </div>
                         <span className="text-[16px] font-[600] text-gray-600 ">Create new project</span>

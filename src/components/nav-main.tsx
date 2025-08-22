@@ -30,7 +30,7 @@ export function NavMain({
         {items.map((item, index) => (
           <SidebarMenuItem key={index}>
             <SidebarMenuButton tooltip={item.title} className={`p-3 mt-1 ${item.isActive ? "bg-[#f5f4ff] text-[#5754ac] font-[550]" : ""} hover:bg-[#f5f4ff] hover:text-[#5754ac] cursor-pointer`}>
-              {item.icon && <item.icon className="mr-2" />}
+              {item.icon && <item.icon className="mr-2"/>}
               <span className="text-sm text-black">{item.title}</span>
             </SidebarMenuButton>
           </SidebarMenuItem>

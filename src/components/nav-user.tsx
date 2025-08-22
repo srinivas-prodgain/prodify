@@ -2,7 +2,6 @@
 
 import {
   Settings,
-  Sparkle,
 } from "lucide-react"
 
 import {
@@ -21,7 +20,7 @@ export function NavUser() {
           <span className="text-sm text-black">Settings</span>
         </Button>
         <Card
-          className="w-full bg-gradient-to-br from-[#6742ED] to-[#DCDCEC] text-white border-0 gap-0"
+          className="w-full text-white border-0 gap-0 bg-[url('https://res.cloudinary.com/dwhuwudg9/image/upload/v1755786285/magicpattern-mesh-gradient-1755786015453_pwuxpe_235ba6.jpg')] bg-cover bg-center"
         >
           <CardHeader className="px-3">
             <CardTitle >

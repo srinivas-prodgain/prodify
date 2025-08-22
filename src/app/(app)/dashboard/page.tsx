@@ -8,9 +8,9 @@ import { CalendarWidget } from "@/components/calendar-widget"
 import { MyTasks } from "@/components/my-tasks"
 import { ProjectsGrid } from "@/components/projects-grid"
 import { MyGoals } from "@/components/my-goals"
+import { FocusMetrics } from "@/components/focus-metrics"
 import { Reminders } from "@/components/reminders"
 import { SidebarTrigger } from "@/components/ui/sidebar"
-import { Separator } from "@/components/ui/separator"
 
 export default function Page() {
     const currentDate = new Date()
@@ -36,45 +36,45 @@ export default function Page() {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <h1 className="text-[48px] sm:text-4xl lg:text-4xl font-[700] text-foreground">
+                                    <h1 className="text-2xl xs:text-3xl sm:text-4xl font-[700] text-foreground">
                                         Hello, Courtney
                                     </h1>
-                                    <p className="text-[32px] sm:text-2xl lg:text-4xl font-[560] bg-gradient-to-r from-[#26e5cc] to-[#667bda] bg-clip-text text-transparent">
+                                    <p className="text-xl xs:text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-[560] bg-gradient-to-r from-[#26e5cc] to-[#667bda] bg-clip-text text-transparent">
                                         How can I help you today?
                                     </p>
                                 </div>
                             </div>
 
                             <div className="flex flex-wrap gap-3 w-full sm:w-auto items-end">
-                                <Button className="bg-gradient-to-br from-[#6742ED] to-[#DCDCEC] hover:from-[#673EDF] hover:to-[#DCDCEC] text-white rounded-full py-[22px] font-medium max-w-[250px]">
+                                <Button className="text-white rounded-full py-3 sm:py-4 lg:py-[22px] font-medium max-w-[250px] bg-[linear-gradient(144deg,rgba(154,87,255,1)_19%,rgba(170,119,247,1)_41%,rgba(214,197,235,1)_92%)] bg-cover bg-center">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
-                                        className="size-5 text-yellow-200 rotate-45"
+                                        className="size-4 sm:size-4 lg:size-5 text-yellow-200 rotate-45"
                                         fill="currentColor"
                                     >
                                         <path d="M12 2c1.2 3.5 3.5 5.8 7 7-3.5 1.2-5.8 3.5-7 7-1.2-3.5-3.5-5.8-7-7 3.5-1.2 5.8-3.5 7-7z" />
                                     </svg>
-                                    <span className="text-[15px] font-[550] mr-1">Ask AI</span>
+                                    <span className="text-sm sm:text-sm lg:text-[15px] font-[550] mr-1">Ask AI</span>
                                 </Button>
 
                                 <Button
                                     variant="outline"
-                                    className="rounded-full px-4 py-[20px] font-[590] border-[#84dacf] border-2 max-w-[200px] text-[16px]"
+                                    className="rounded-full px-3 sm:px-4 py-3 sm:py-4 lg:py-[20px] font-[590] border-[#84dacf] border-2 max-w-[200px] text-sm sm:text-sm lg:text-[16px]"
                                 >
                                     Get tasks updates
                                 </Button>
 
                                 <Button
                                     variant="outline"
-                                    className="rounded-full px-4 py-[20px] font-[590] border-[#84dacf] border-2 hover:bg-gray-50 max-w-[200px] text-[16px]"
+                                    className="rounded-full px-3 sm:px-4 py-3 sm:py-4 lg:py-[20px] font-[590] border-[#84dacf] border-2 hover:bg-gray-50 max-w-[200px] text-sm sm:text-sm lg:text-[16px]"
                                 >
                                     Create workspace
                                 </Button>
 
                                 <Button
                                     variant="outline"
-                                    className="rounded-full px-4 py-[20px] font-[590] border-[#84dacf] border-2 hover:bg-gray-50 max-w-[200px] text-[16px]"
+                                    className="rounded-full px-3 sm:px-4 py-3 sm:py-4 lg:py-[20px] font-[590] border-[#84dacf] border-2 hover:bg-gray-50 max-w-[200px] text-sm sm:text-sm lg:text-[16px]"
                                 >
                                     Connect apps
                                 </Button>
@@ -87,6 +87,7 @@ export default function Page() {
                     <div className="space-y-6">
                         <MyTasks />
                         <MyGoals />
+                        <FocusMetrics />
                     </div>
                     <div className="space-y-6">
                         <ProjectsGrid />
@@ -96,13 +97,13 @@ export default function Page() {
                 </div>
 
                 <Button
-                    className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-radial from-[#ac7ffd] via-[#af7efe] to-[#ffffff] hover:from-[#673EDF] hover:to-[#DCDCEC] text-white shadow-lg z-50"
+                    className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-[radial-gradient(circle_at_center,_#6d4efc_0%,_#7d6dfd_50%,_#c6b9ff_100%)] shadow-[0_0_40px_10px_rgba(236,133,255,0.6)] hover:from-[#673EDF] hover:to-[#DCDCEC] text-white z-50"
                     size="icon"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        className="size-10 text-yellow-200 rotate-45 absolute top-[11px] left-[5px]"
+                        className="size-9 text-yellow-200 rotate-45 absolute top-[12px] left-[8px]"
                         fill="currentColor"
                     >
                         <path d="M12 2c1.2 3.5 3.5 5.8 7 7-3.5 1.2-5.8 3.5-7 7-1.2-3.5-3.5-5.8-7-7 3.5-1.2 5.8-3.5 7-7z" />

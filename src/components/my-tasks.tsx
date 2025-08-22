@@ -49,7 +49,7 @@ export function MyTasks() {
     }
 
     return (
-        <Card className="rounded-xl border shadow-sm py-4">
+        <Card className="rounded-xl border py-4 shadow-none">
             <CardHeader className="flex flex-row items-center justify-between">
                 <div className="flex items-center gap-2">
                     <ClipboardList className="text-[#8379c9] size-5" strokeWidth={2} />
@@ -62,10 +62,10 @@ export function MyTasks() {
                         className="text-black hover:bg-purple-50 hover:text-[#6742ED]"
                         onClick={handleAddTask}
                     >
-                        <Plus className="w-4 h-4" strokeWidth={2}/>
+                        <Plus className="w-4 h-4" strokeWidth={2} />
                     </Button>
                     <Button variant="ghost" size="sm" className="text-black hover:bg-purple-50 hover:text-[#6742ED]">
-                        <Maximize2 className="w-4 h-4" strokeWidth={2}/>
+                        <Maximize2 className="w-4 h-4" strokeWidth={2} />
                     </Button>
 
                     <Button
@@ -74,7 +74,7 @@ export function MyTasks() {
                         className="text-black hover:bg-purple-50 hover:text-[#6742ED] "
                         onClick={() => handleTaskAction(0, 'menu')}
                     >
-                        <MoreHorizontal className="w-4 h-4" strokeWidth={2}/>
+                        <MoreHorizontal className="w-4 h-4" strokeWidth={2} />
                     </Button>
                 </div>
             </CardHeader>

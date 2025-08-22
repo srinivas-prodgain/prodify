@@ -79,3 +79,13 @@ export type TGoal = {
     color: string
 }
 
+
+export type TFocusMetric = {
+    id: number
+    name: string
+    value: number
+    target: number
+    color: string
+    icon: React.ReactNode
+    description: string
+}

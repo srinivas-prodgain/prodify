@@ -251,7 +251,7 @@ export function CalendarWidget() {
 
 
     return (
-        <Card className="rounded-xl border shadow-sm py-4">
+        <Card className="rounded-xl border py-4 shadow-none">
             <CardHeader className="flex flex-row items-center justify-between">
                 <div className="flex items-center gap-2">
                     <CalendarDays className="text-[#8379c9] size-5" strokeWidth={2} />
