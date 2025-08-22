@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@floating-ui/react": "^0.27.16",
     "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-collapsible": "^1.1.12",
     "@radix-ui/react-dialog": "^1.1.15",
