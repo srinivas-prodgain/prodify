@@ -81,14 +81,14 @@ export function MyTasks() {
             <CardContent className="space-y-3">
                 <Collapsible open={isInProgressOpen} onOpenChange={setIsInProgressOpen} >
                     <CollapsibleTrigger asChild>
-                        <Button variant="ghost" className="w-full justify-between p-0 h-auto hover:bg-purple-50 hover:text-[#6742ED] py-2">
+                        <Button variant="ghost" className="w-full justify-between p-0 h-auto hover:bg-transparent py-2">
                             <div className="flex items-center gap-2">
                                 {isInProgressOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                                <span className="bg-[#abedee] px-2 py-1 rounded text-xs font-[580] text-black">
+                                <span className="bg-[#abedee] px-2 py-1 rounded-[5px] text-xs font-[580] text-black">
                                     IN PROGRESS
                                 </span>
-                                <span className="text-sm text-muted-foreground">•</span>
-                                <span className="text-sm text-muted-foreground">{groupedTasks.inProgress.length} tasks</span>
+                                <span className="text-sm text-black">•</span>
+                                <span className="text-[12px] text-black mb-[2px]">{groupedTasks.inProgress.length} tasks</span>
                             </div>
                         </Button>
                     </CollapsibleTrigger>
@@ -99,14 +99,14 @@ export function MyTasks() {
 
                 <Collapsible open={isToDoOpen} onOpenChange={setIsToDoOpen}>
                     <CollapsibleTrigger asChild>
-                        <Button variant="ghost" className="w-full justify-between p-0 h-auto hover:bg-purple-50 hover:text-[#6742ED] py-2">
+                        <Button variant="ghost" className="w-full justify-between p-0 h-auto hover:bg-transparent py-2">
                             <div className="flex items-center gap-2">
                                 {isToDoOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                                <span className="bg-[#f2f3f7] px-2 py-1 rounded text-xs font-[580] text-black">
+                                <span className="bg-[#f2f3f7] px-2 py-1 rounded-[5px] text-xs font-[580] text-black">
                                     TO DO
                                 </span>
-                                <span className="text-sm text-muted-foreground">•</span>
-                                <span className="text-sm text-muted-foreground">{groupedTasks.toDo.length} tasks</span>
+                                <span className="text-sm text-black">•</span>
+                                <span className="text-[12px] text-black mb-[2px]">{groupedTasks.toDo.length} tasks</span>
                             </div>
                         </Button>
                     </CollapsibleTrigger>
@@ -117,14 +117,14 @@ export function MyTasks() {
 
                 <Collapsible open={isUpcomingOpen} onOpenChange={setIsUpcomingOpen}>
                     <CollapsibleTrigger asChild>
-                        <Button variant="ghost" className="w-full justify-between p-0 h-auto hover:bg-purple-50 hover:text-[#6742ED] py-2">
+                        <Button variant="ghost" className="w-full justify-between p-0 h-auto hover:bg-transparent py-2">
                             <div className="flex items-center gap-2">
                                 {isUpcomingOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                                <span className="bg-[#f9d3b0] px-2 py-1 rounded text-xs font-[580] text-black">
+                                <span className="bg-[#f9d3b0] px-2 py-1 rounded-[5px] text-xs font-[580] text-black">
                                     UPCOMING
                                 </span>
-                                <span className="text-sm text-muted-foreground">•</span>
-                                <span className="text-sm text-muted-foreground">{groupedTasks.upcoming.length} tasks</span>
+                                <span className="text-sm text-black">•</span>
+                                <span className="text-[12px] text-black mb-[2px]">{groupedTasks.upcoming.length} tasks</span>
                             </div>
                         </Button>
                     </CollapsibleTrigger>

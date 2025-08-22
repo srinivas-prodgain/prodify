@@ -4,6 +4,7 @@ import { AlertTriangle, Bed, Clock, Target, Users } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { CircularProgress } from "@/components/circular-progress"
 import { TFocusMetric } from "@/types/ui"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 
 
 
@@ -63,9 +64,11 @@ export function FocusMetrics() {
                 {focusMetrics.length > 0 ? (
                     <div className="grid gap-4">
                         {focusMetrics.map((metric) => (
+                            <Tooltip key={metric.id} delayDuration={500}>
+                                <TooltipTrigger asChild>
                             <div
                                 key={metric.id}
-                                className="hover:bg-gray-50 p-2 pl-0 rounded-lg transition-colors cursor-pointer"
+                                className="p-2 pl-0 rounded-lg transition-colors cursor-pointer"
                                 onClick={() => handleMetricClick(metric.id)}
                             >
                                 <div className="hidden min-[560px]:flex items-center gap-4">
@@ -84,7 +87,7 @@ export function FocusMetrics() {
                                                 {metric.name}
                                             </h4>
                                         </div>
-                                        <p className="text-[14px] text-[#a5a5a5]">
+                                        <p className="text-[14px] text-[#b9b9b9]">
                                             {metric.description}
                                         </p>
                                     </div>
@@ -92,7 +95,7 @@ export function FocusMetrics() {
                                         <div className="text-[15px] font-[580] text-foreground">
                                             {metric.value}/{metric.target}h
                                         </div>
-                                        <div className="text-[13px] text-[#a5a5a5]">
+                                        <div className="text-[13px] text-[#b9b9b9]">
                                             {Math.round((metric.value / metric.target) * 100)}%
                                         </div>
                                     </div>
@@ -115,7 +118,7 @@ export function FocusMetrics() {
                                                     {metric.name}
                                                 </h4>
                                             </div>
-                                            <p className="text-[13px] text-[#a5a5a5] truncate">
+                                            <p className="text-[13px] text-[#b9b9b9] truncate">
                                                 {metric.description}
                                             </p>
                                         </div>
@@ -123,13 +126,18 @@ export function FocusMetrics() {
                                             <div className="text-[14px] font-[580] text-foreground">
                                                 {metric.value}/{metric.target}h
                                             </div>
-                                            <div className="text-[12px] text-[#a5a5a5]">
+                                            <div className="text-[12px] text-[#b9b9b9]">
                                                 {Math.round((metric.value / metric.target) * 100)}%
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            </TooltipTrigger>
+                            <TooltipContent side="top-left" sideOffset={8} >
+                                <p className="text-sm font-medium leading-relaxed">{metric.name}</p>
+                            </TooltipContent>
+                            </Tooltip>
                         ))}
                     </div>
                 ) : (

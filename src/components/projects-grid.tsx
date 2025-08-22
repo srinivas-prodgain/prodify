@@ -51,9 +51,9 @@ export function ProjectsGrid() {
                     <CardTitle className="text-lg font-[580]">Projects</CardTitle>
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" size="sm" className="text-sm text-muted-foreground hover:bg-purple-50 hover:text-[#6742ED]">
+                            <Button variant="ghost" size="sm" className="text-[12px] text-[#999999] hover:bg-purple-50 hover:text-black flex items-center gap-0">
                                 {selectedFilter}
-                                <ChevronDown className="w-4 h-4 ml-1" />
+                                <ChevronDown className="w-4 h-4 ml-1" strokeWidth={2} />
                             </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="start">
@@ -85,21 +85,21 @@ export function ProjectsGrid() {
                         >
                             <Plus className="w-4 h-4 text-[#6742ED]" strokeWidth={1.8} />
                         </div>
-                        <span className="text-[16px] font-[600] text-gray-600 ">Create new project</span>
+                        <span className="text-[16px] font-[550] text-black">Create new project</span>
                     </div>
 
                     {projects.map((project) => (
                         <div
                             key={project.id}
-                            className="flex items-center gap-3 p-3 pl-0 rounded-lg hover:bg-gray-50 h-16 transition-colors cursor-pointer"
+                            className="flex items-center gap-3 p-3 pl-0 rounded-lg h-16 transition-colors cursor-pointer"
                             onClick={() => handleProjectClick(project.id)}
                         >
                             <div className={`w-12 h-12 rounded-lg ${project.color} flex items-center justify-center text-lg flex-shrink-0`}>
                                 {project.icon}
                             </div>
                             <div className="flex-1 min-w-0">
-                                <h4 className="font-[600] text-[16px] leading-tight">{project.name}</h4>
-                                <p className="text-[14px] text-gray-400 mt-1">
+                                <h4 className="font-[550] text-[16px] leading-tight text-black">{project.name}</h4>
+                                <p className="text-[14px] text-[#989898]">
                                     {project.tasks} tasks • {project.teammates} teammates
                                 </p>
                             </div>

@@ -6,6 +6,9 @@ import {
 
 import {
   SidebarGroup,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import { Button } from "./ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card"
@@ -13,14 +16,16 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/
 export function NavUser() {
 
   return (
-    <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-      <div className="flex flex-col gap-5 w-full">
-        <Button variant="ghost" className="w-full justify-start p-4 mt-2 hover:bg-[#f5f4ff] hover:text-[#6742ED]">
-          <Settings className="w-3 h-3" />
-          <span className="text-sm text-black">Settings</span>
-        </Button>
+    <SidebarGroup className="group-data-[collapsible=icon]:hidden p-0">
+      <SidebarMenu className="flex flex-col gap-5 w-full">
+        <SidebarMenuItem>
+          <SidebarMenuButton tooltip="Settings" className={`p-3 mt-1 hover:bg-[#f5f4ff] hover:text-[#5754ac] cursor-pointer`}>
+            <Settings className="mr-2" />
+            <span className="text-sm text-black">Settings</span>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
         <Card
-          className="w-full text-white border-0 gap-0 bg-[url('https://res.cloudinary.com/dwhuwudg9/image/upload/v1755786285/magicpattern-mesh-gradient-1755786015453_pwuxpe_235ba6.jpg')] bg-cover bg-center"
+          className="w-[90%] text-white border-0 gap-0 bg-[url('https://res.cloudinary.com/dwhuwudg9/image/upload/v1755786285/magicpattern-mesh-gradient-1755786015453_pwuxpe_235ba6.jpg')] bg-cover bg-center ml-[12px] mb-[12px]"
         >
           <CardHeader className="px-3">
             <CardTitle >
@@ -35,7 +40,7 @@ export function NavUser() {
                 >
                   <path d="M12 2c1.2 3.5 3.5 5.8 7 7-3.5 1.2-5.8 3.5-7 7-1.2-3.5-3.5-5.8-7-7 3.5-1.2 5.8-3.5 7-7z" />
                 </svg>
-                <span className="text-white text-xl font-[580] relative right-[-20px] top-[-5px]"> 
+                <span className="text-white text-xl font-[580] relative right-[-20px] top-[-5px]">
                   prodify
                 </span>
               </div>
@@ -54,7 +59,7 @@ export function NavUser() {
             </Button>
           </CardContent>
         </Card>
-      </div>
+      </SidebarMenu>
     </SidebarGroup>
   )
 }

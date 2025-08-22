@@ -110,7 +110,7 @@ export function Reminders() {
                                 >
                                     <div className="flex items-start gap-3 flex-1">
                                         <div className="flex-1 min-w-0">
-                                            <p className="text-[15px] text-[#333333] leading-relaxed font-[450]">
+                                            <p className="text-[15px] text-[#333333] leading-relaxed font-[550]">
                                                 {reminder.text}
                                             </p>
                                         </div>

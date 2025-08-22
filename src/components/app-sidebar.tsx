@@ -91,7 +91,7 @@ const data = {
       title: "Reports & Analytics",
       url: "#",
       icon: ChartColumnStacked
-    },
+    }
   ],
   projects: [
     {
