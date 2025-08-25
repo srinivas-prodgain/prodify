@@ -9,7 +9,7 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { tasks } from "@/data/dummydata"
+import { tasks } from "@/data/dummy-data"
 import { TaskSection } from "./sub-components/task-section"
 
 
@@ -30,28 +30,28 @@ export function MyTasks() {
         <Card className="rounded-xl border py-4 shadow-none">
             <CardHeader className="flex flex-row items-center justify-between">
                 <div className="flex items-center gap-2">
-                    <ClipboardList className="text-[#8379c9] size-5" strokeWidth={2} />
+                    <ClipboardList className="text-brand-purple-light size-5" strokeWidth={2} />
                     <CardTitle className="text-lg font-[580]">My Tasks</CardTitle>
                 </div>
                 <div className="flex items-center gap-2">
                     <Button
                         variant="ghost"
                         size="sm"
-                        className="text-black hover:bg-purple-50 hover:text-[#6742ED]"
+                        className="text-black hover:bg-purple-50 hover:text-brand-purple-secondary"
                     >
                         <Plus className="size-4" strokeWidth={2} />
                     </Button>
                     <Button
                         variant="ghost"
                         size="sm"
-                        className="text-black hover:bg-purple-50 hover:text-[#6742ED]"
+                        className="text-black hover:bg-purple-50 hover:text-brand-purple-secondary"
                     >
                         <Maximize2 className="size-4" strokeWidth={2} />
                     </Button>
                     <Button
                         variant="ghost"
                         size="sm"
-                        className="text-black hover:bg-purple-50 hover:text-[#6742ED]"
+                        className="text-black hover:bg-purple-50 hover:text-brand-purple-secondary"
                     >
                         <MoreHorizontal className="size-4" strokeWidth={2} />
                     </Button>

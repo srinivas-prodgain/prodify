@@ -8,7 +8,7 @@ import {
     TooltipContent,
     TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { goals } from "@/data/dummydata"
+import { goals } from "@/data/dummy-data"
 
 export function MyGoals() {
 
@@ -16,7 +16,7 @@ export function MyGoals() {
         <Card className="rounded-xl border py-4 gap-2 shadow-none">
             <CardHeader className="pb-3 max-[560px]:pb-2">
                 <div className="flex items-center gap-2">
-                    <Goal className="text-[#8379c9] size-5" strokeWidth={2} />
+                    <Goal className="text-brand-purple-light size-5" strokeWidth={2} />
                     <CardTitle className="text-lg font-[580] max-[560px]:text-base">My Goals</CardTitle>
                 </div>
             </CardHeader>
@@ -32,7 +32,7 @@ export function MyGoals() {
                                     <div className="hidden min-[560px]:flex items-start gap-4">
                                         <div className="flex-1">
                                             <h4 className="font-[580] text-md leading-tight">{goal.name}</h4>
-                                            <p className="text-[0.875rem] text-[#b9b9b9]">
+                                            <p className="text-[0.88rem] text-gray-light">
                                                 {goal.project} • My Projects
                                             </p>
                                         </div>
@@ -43,7 +43,7 @@ export function MyGoals() {
                                                 className="h-2 ml-2"
                                             />
                                         </div>
-                                        <span className="text-[0.9375rem] font-[580] text-foreground min-w-[2.5rem] text-right">
+                                        <span className="text-[0.94rem] font-[580] text-foreground min-w-[2.5rem] text-right">
                                             {goal.progress}%
                                         </span>
                                     </div>
@@ -53,11 +53,11 @@ export function MyGoals() {
                                         <div className="flex items-start justify-between gap-3 mb-2">
                                             <div className="flex-1 min-w-0">
                                                 <h4 className="font-[580] text-sm leading-tight truncate">{goal.name}</h4>
-                                                <p className="text-[0.8125rem] text-[#a5a5a5] mt-0.5 truncate">
+                                                <p className="text-[0.81rem] text-gray-medium mt-0.5 truncate">
                                                     {goal.project} • My Projects
                                                 </p>
                                             </div>
-                                            <span className="text-[0.9375rem] font-[580] text-foreground ml-2 flex-shrink-0">
+                                            <span className="text-[0.94rem] font-[580] text-foreground ml-2 flex-shrink-0">
                                                 {goal.progress}%
                                             </span>
                                         </div>
@@ -78,7 +78,7 @@ export function MyGoals() {
                     ))
                 ) : (
                     <div className="text-center py-8 text-muted-foreground">
-                        <Goal className="size-8 mx-auto mb-2 opacity-50 text-[#6742ED]" strokeWidth={2} />
+                        <Goal className="size-8 mx-auto mb-2 opacity-50 text-brand-purple-secondary" strokeWidth={2} />
                         <p className="text-sm">No goals set yet</p>
                         <p className="text-xs mt-1">Create your first goal to track progress</p>
                     </div>

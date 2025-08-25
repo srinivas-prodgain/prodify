@@ -45,7 +45,7 @@ export default function Home() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#fdfbff] to-[#fdfbff] pointer-events-none"></div>
 
       {showZoomSuggestion && isDesktop && (
-        <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#26e5cc] to-[#667bda] text-white p-3 shadow-lg">
+        <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-brand-teal to-brand-purple-primary text-white p-3 shadow-lg">
           <div className="max-w-4xl mx-auto flex items-center justify-between px-4">
             <div className="flex items-center gap-3">
               <InfoIcon className="w-5 h-5 flex-shrink-0" />
@@ -73,7 +73,7 @@ export default function Home() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-[700] text-foreground mb-4">
               Prodify
             </h1>
-            <p className="text-lg sm:text-xl lg:text-2xl font-[560] bg-gradient-to-r from-[#26e5cc] to-[#667bda] bg-clip-text text-transparent">
+            <p className="text-lg sm:text-xl lg:text-2xl font-[560] bg-gradient-to-r from-brand-teal to-brand-purple-primary bg-clip-text text-transparent">
               Your productivity workspace awaits
             </p>
           </div>
@@ -82,8 +82,8 @@ export default function Home() {
             <CardContent className="p-6 sm:p-8 lg:p-10">
               <div className="space-y-6">
                 <div className="flex justify-center mb-6">
-                  <div className="p-3 bg-gradient-to-r from-[#26e5cc]/10 to-[#667bda]/10 rounded-full">
-                    <SparklesIcon className="size-10 text-[#667bda]" />
+                  <div className="p-3 bg-gradient-to-r from-brand-teal/10 to-brand-purple-primary/10 rounded-full">
+                    <SparklesIcon className="size-10 text-brand-purple-primary" />
                   </div>
                 </div>
 
@@ -98,7 +98,7 @@ export default function Home() {
 
                 <Button
                   onClick={handleLaunchDashboard}
-                  className="w-full sm:w-auto text-white rounded-full px-8 py-4 sm:py-6 font-[600] text-base sm:text-lg bg-gradient-to-r from-[#26e5cc] to-[#667bda] hover:from-[#20d4bb] hover:to-[#5a6fd1] transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl group"
+                  className="w-full sm:w-auto text-white rounded-full px-8 py-4 sm:py-6 font-[600] text-base sm:text-lg bg-gradient-to-r from-brand-teal to-brand-purple-primary hover:from-brand-teal/80 hover:to-brand-purple-primary/80 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl group"
                 >
                   <span>Enter Dashboard</span>
                   <ArrowRightIcon className="ml-2 size-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -110,8 +110,8 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto mb-12">
             <Card className="border-0 shadow-sm bg-white/30 backdrop-blur-sm hover:bg-white/50 transition-all duration-300">
               <CardContent className="p-4 sm:p-6 text-center">
-                <div className="size-12 bg-gradient-to-r from-[#26e5cc]/20 to-[#667bda]/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <TagsIcon className="size-6 text-[#667bda]" />
+                <div className="size-12 bg-gradient-to-r from-brand-teal/20 to-brand-purple-primary/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <TagsIcon className="size-6 text-brand-purple-primary" />
                 </div>
                 <h3 className="font-[600] text-foreground mb-2 text-sm sm:text-base">Task Management</h3>
                 <p className="text-xs sm:text-sm text-muted-foreground">Organize and track your tasks efficiently</p>
@@ -120,8 +120,8 @@ export default function Home() {
 
             <Card className="border-0 shadow-sm bg-white/30 backdrop-blur-sm hover:bg-white/50 transition-all duration-300">
               <CardContent className="p-4 sm:p-6 text-center">
-                <div className="size-12 bg-gradient-to-r from-[#26e5cc]/20 to-[#667bda]/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <ChartBarIcon className="size-6 text-[#667bda]" />
+                <div className="size-12 bg-gradient-to-r from-brand-teal/20 to-brand-purple-primary/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <ChartBarIcon className="size-6 text-brand-purple-primary" />
                 </div>
                 <h3 className="font-[600] text-foreground mb-2 text-sm sm:text-base">Analytics</h3>
                 <p className="text-xs sm:text-sm text-muted-foreground">Track your productivity metrics</p>
@@ -130,8 +130,8 @@ export default function Home() {
 
             <Card className="border-0 shadow-sm bg-white/30 backdrop-blur-sm hover:bg-white/50 transition-all duration-300 sm:col-span-2 lg:col-span-1">
               <CardContent className="p-4 sm:p-6 text-center">
-                <div className="size-12 bg-gradient-to-r from-[#26e5cc]/20 to-[#667bda]/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <TimerIcon className="size-6 text-[#667bda]" />
+                <div className="size-12 bg-gradient-to-r from-brand-teal/20 to-brand-purple-primary/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <TimerIcon className="size-6 text-brand-purple-primary" />
                 </div>
                 <h3 className="font-[600] text-foreground mb-2 text-sm sm:text-base">Time Tracking</h3>
                 <p className="text-xs sm:text-sm text-muted-foreground">Monitor how you spend your time</p>

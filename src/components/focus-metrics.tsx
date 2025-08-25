@@ -4,7 +4,7 @@ import { Clock } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { CircularProgress } from "@/components/sub-components/circular-progress"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
-import { focusMetrics } from "@/data/dummydata"
+import { focusMetrics } from "@/data/dummy-data"
 
 
 
@@ -17,7 +17,7 @@ export function FocusMetrics() {
         <Card className="rounded-xl border py-4 gap-2 shadow-none">
             <CardHeader className="pb-3 max-[560px]:pb-2">
                 <div className="flex items-center gap-2">
-                    <Clock className="text-[#8379c9] size-5" strokeWidth={2} />
+                    <Clock className="text-brand-purple-light size-5" strokeWidth={2} />
                     <CardTitle className="text-lg font-[580] max-[560px]:text-base">Focus Metrics</CardTitle>
                 </div>
             </CardHeader>
@@ -47,15 +47,15 @@ export function FocusMetrics() {
                                                         {metric.name}
                                                     </h4>
                                                 </div>
-                                                <p className="text-[0.875rem] text-[#b9b9b9]">
+                                                <p className="text-[0.88rem] text-gray-light">
                                                     {metric.description}
                                                 </p>
                                             </div>
                                             <div className="text-right">
-                                                <div className="text-[0.9375rem] font-[580] text-foreground">
+                                                <div className="text-[0.94rem] font-[580] text-foreground">
                                                     {metric.value}/{metric.target}h
                                                 </div>
-                                                <div className="text-[0.8125rem] text-[#b9b9b9]">
+                                                <div className="text-[0.81rem] text-gray-light">
                                                     {Math.round((metric.value / metric.target) * 100)}%
                                                 </div>
                                             </div>
@@ -78,15 +78,15 @@ export function FocusMetrics() {
                                                             {metric.name}
                                                         </h4>
                                                     </div>
-                                                    <p className="text-[0.8125rem] text-[#b9b9b9] truncate">
+                                                    <p className="text-[0.81rem] text-gray-light truncate">
                                                         {metric.description}
                                                     </p>
                                                 </div>
                                                 <div className="text-right flex-shrink-0">
-                                                    <div className="text-[0.875rem] font-[580] text-foreground">
+                                                    <div className="text-[0.88rem] font-[580] text-foreground">
                                                         {metric.value}/{metric.target}h
                                                     </div>
-                                                    <div className="text-[0.75rem] text-[#b9b9b9]">
+                                                    <div className="text-[0.75rem] text-gray-light">
                                                         {Math.round((metric.value / metric.target) * 100)}%
                                                     </div>
                                                 </div>
@@ -102,7 +102,7 @@ export function FocusMetrics() {
                     </div>
                 ) : (
                     <div className="text-center py-8 text-muted-foreground">
-                        <Clock className="size-8 mx-auto mb-2 opacity-50 text-[#6742ED]" strokeWidth={2} />
+                        <Clock className="size-8 mx-auto mb-2 opacity-50 text-brand-purple-secondary" strokeWidth={2} />
                         <p className="text-sm">No focus data yet</p>
                         <p className="text-xs mt-1">Start tracking your time to see metrics</p>
                     </div>
