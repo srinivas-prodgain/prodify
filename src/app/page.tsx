@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { useRouter } from "next/navigation"
+import { useState, useEffect } from "react"
 
 const ArrowRightIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
   <svg
@@ -35,18 +36,103 @@ const SparklesIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
   </svg>
 )
 
+const InfoIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <circle cx="12" cy="12" r="10" />
+    <path d="m12 8 0 8" />
+    <path d="m8 12 8 0" />
+  </svg>
+)
+
+const XIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="m18 6-12 12" />
+    <path d="m6 6 12 12" />
+  </svg>
+)
+
 export default function Home() {
   const router = useRouter()
+  const [showZoomSuggestion, setShowZoomSuggestion] = useState(false)
+  const [isDesktop, setIsDesktop] = useState(false)
+
+  useEffect(() => {
+    // Check if user is on desktop (screen width > 1024px)
+    const checkIfDesktop = () => {
+      const isDesktopSize = window.innerWidth >= 1024
+      setIsDesktop(isDesktopSize)
+
+      // Show zoom suggestion for desktop users only
+      if (isDesktopSize) {
+        // Check if user has already seen the suggestion
+        const hasSeenSuggestion = localStorage.getItem('prodify-zoom-suggestion-seen')
+        if (!hasSeenSuggestion) {
+          setShowZoomSuggestion(true)
+        }
+      }
+    }
+
+    checkIfDesktop()
+    window.addEventListener('resize', checkIfDesktop)
+
+    return () => window.removeEventListener('resize', checkIfDesktop)
+  }, [])
 
   const handleLaunchDashboard = () => {
     router.push("/dashboard")
+  }
+
+  const dismissZoomSuggestion = () => {
+    setShowZoomSuggestion(false)
+    localStorage.setItem('prodify-zoom-suggestion-seen', 'true')
   }
 
   return (
     <div className="min-h-screen bg-[#fdfbff] bg-[linear-gradient(#f3f0f6_1px,transparent_1px),linear-gradient(90deg,#f3f0f6_1px,transparent_1px)] bg-[size:55px_55px] bg-[position:-8px_-20px]">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#fdfbff] to-[#fdfbff] pointer-events-none"></div>
 
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
+      {/* Zoom Suggestion Banner */}
+      {showZoomSuggestion && isDesktop && (
+        <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#26e5cc] to-[#667bda] text-white p-3 shadow-lg">
+          <div className="max-w-4xl mx-auto flex items-center justify-between px-4">
+            <div className="flex items-center gap-3">
+              <InfoIcon className="w-5 h-5 flex-shrink-0" />
+              <div className="text-sm sm:text-base">
+                <span className="font-[600]">💡 Pro Tip:</span> For the best viewing experience on desktop, set your browser zoom to <span className="font-[700] bg-white/20 px-2 py-1 rounded">90%</span>
+                <span className="hidden sm:inline ml-2 text-white/80">(Ctrl/Cmd + - to zoom out)</span>
+              </div>
+            </div>
+            <Button
+              onClick={dismissZoomSuggestion}
+              variant="ghost"
+              size="sm"
+              className="text-white hover:bg-white/20 p-1 h-auto min-w-0"
+            >
+              <XIcon className="w-4 h-4" />
+            </Button>
+          </div>
+        </div>
+      )}
+
+      <div className={`relative z-10 flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8 ${showZoomSuggestion && isDesktop ? 'pt-16' : ''}`}>
         <div className="w-full max-w-4xl mx-auto text-center pt-10">
 
           <div className="mb-8 sm:mb-12">
