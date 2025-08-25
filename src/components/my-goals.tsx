@@ -3,27 +3,14 @@
 import { Goal } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
-import { TGoal } from "@/types/ui"
-
 import {
     Tooltip,
     TooltipContent,
     TooltipTrigger,
 } from "@/components/ui/tooltip"
-
-// Internal dummy data
-const goals: TGoal[] = [
-    { id: 1, name: "Check Emails and Messages", project: "Product launch", progress: 73, color: "bg-cyan-500" },
-    { id: 2, name: "Prepare a brief status update to the client", project: "Product launch", progress: 21, color: "bg-orange-500" },
-    { id: 3, name: "Update project documentation", project: "Team brainstorm", progress: 63, color: "bg-cyan-500" }
-]
+import { goals } from "@/data/dummydata"
 
 export function MyGoals() {
-
-    const handleGoalClick = (goalId: number) => {
-        console.log(`Clicked goal: ${goalId}`)
-        // TODO: Navigate to goal detail or open goal editor
-    }
 
     return (
         <Card className="rounded-xl border py-4 gap-2 shadow-none">
@@ -39,9 +26,7 @@ export function MyGoals() {
                         <Tooltip key={goal.id} delayDuration={500}>
                             <TooltipTrigger asChild>
                                 <div
-                                    key={goal.id}
                                     className="p-2 pl-0 rounded-lg transition-colors cursor-pointer"
-                                    onClick={() => handleGoalClick(goal.id)}
                                 >
                                     {/* Desktop layout (≥560px) */}
                                     <div className="hidden min-[560px]:flex items-start gap-4">
@@ -65,7 +50,6 @@ export function MyGoals() {
 
                                     {/* Mobile layout (<560px) */}
                                     <div className="block min-[560px]:hidden">
-                                        {/* First row: Goal text and percentage */}
                                         <div className="flex items-start justify-between gap-3 mb-2">
                                             <div className="flex-1 min-w-0">
                                                 <h4 className="font-[580] text-sm leading-tight truncate">{goal.name}</h4>
@@ -78,7 +62,6 @@ export function MyGoals() {
                                             </span>
                                         </div>
 
-                                        {/* Second row: Progress bar */}
                                         <div className="w-full">
                                             <Progress
                                                 value={goal.progress}
@@ -88,14 +71,14 @@ export function MyGoals() {
                                     </div>
                                 </div>
                             </TooltipTrigger>
-                            <TooltipContent side="top-left" sideOffset={8} >
+                            <TooltipContent side="top-left" sideOffset={8}>
                                 <p className="text-sm font-medium leading-relaxed">{goal.name}</p>
                             </TooltipContent>
                         </Tooltip>
                     ))
                 ) : (
                     <div className="text-center py-8 text-muted-foreground">
-                        <Goal className="w-8 h-8 mx-auto mb-2 opacity-50 text-[#6742ED]" strokeWidth={2} />
+                        <Goal className="size-8 mx-auto mb-2 opacity-50 text-[#6742ED]" strokeWidth={2} />
                         <p className="text-sm">No goals set yet</p>
                         <p className="text-xs mt-1">Create your first goal to track progress</p>
                     </div>
