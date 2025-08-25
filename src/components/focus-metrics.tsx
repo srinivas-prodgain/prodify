@@ -1,18 +1,12 @@
 "use client"
 
-import { AlertTriangle, Bed, Clock, Target, Users } from "lucide-react"
+import { Clock } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { CircularProgress } from "@/components/circular-progress"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { focusMetrics } from "@/data/dummydata"
 
 
-
-const ICONS_FOCUS_METRICS: Record<string, React.ReactNode> = {
-    Target: <Target className="size-4" />,
-    Users: <Users className="size-4" />,
-    AlertTriangle: <AlertTriangle className="size-4" />,
-}
 
 export function FocusMetrics() {
     const handleMetricClick = (metricId: number) => {
@@ -47,21 +41,21 @@ export function FocusMetrics() {
                                             <div className="flex-1">
                                                 <div className="flex items-center gap-2 mb-1">
                                                     <span style={{ color: metric.color }}>
-                                                        {ICONS_FOCUS_METRICS[metric.icon as keyof typeof ICONS_FOCUS_METRICS] || <Target className="size-4" />}
+                                                        {metric.icon}
                                                     </span>
                                                     <h4 className="font-[580] text-md leading-tight">
                                                         {metric.name}
                                                     </h4>
                                                 </div>
-                                                <p className="text-[14px] text-[#b9b9b9]">
+                                                <p className="text-[0.875rem] text-[#b9b9b9]">
                                                     {metric.description}
                                                 </p>
                                             </div>
                                             <div className="text-right">
-                                                <div className="text-[15px] font-[580] text-foreground">
+                                                <div className="text-[0.9375rem] font-[580] text-foreground">
                                                     {metric.value}/{metric.target}h
                                                 </div>
-                                                <div className="text-[13px] text-[#b9b9b9]">
+                                                <div className="text-[0.8125rem] text-[#b9b9b9]">
                                                     {Math.round((metric.value / metric.target) * 100)}%
                                                 </div>
                                             </div>
@@ -78,21 +72,21 @@ export function FocusMetrics() {
                                                 <div className="flex-1 min-w-0">
                                                     <div className="flex items-center gap-2 mb-1">
                                                         <span style={{ color: metric.color }}>
-                                                            {ICONS_FOCUS_METRICS[metric.icon as keyof typeof ICONS_FOCUS_METRICS] || <Target className="size-4" />}
+                                                            {metric.icon}
                                                         </span>
                                                         <h4 className="font-[580] text-sm leading-tight">
                                                             {metric.name}
                                                         </h4>
                                                     </div>
-                                                    <p className="text-[13px] text-[#b9b9b9] truncate">
+                                                    <p className="text-[0.8125rem] text-[#b9b9b9] truncate">
                                                         {metric.description}
                                                     </p>
                                                 </div>
                                                 <div className="text-right flex-shrink-0">
-                                                    <div className="text-[14px] font-[580] text-foreground">
+                                                    <div className="text-[0.875rem] font-[580] text-foreground">
                                                         {metric.value}/{metric.target}h
                                                     </div>
-                                                    <div className="text-[12px] text-[#b9b9b9]">
+                                                    <div className="text-[0.75rem] text-[#b9b9b9]">
                                                         {Math.round((metric.value / metric.target) * 100)}%
                                                     </div>
                                                 </div>

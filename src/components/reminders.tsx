@@ -47,13 +47,13 @@ export function Reminders() {
                             >
                                 <div className="flex items-center gap-2">
                                     {isTodayOpen ? (
-                                        <ChevronDown strokeWidth={2.5} height={30} width={30} />
+                                        <ChevronDown strokeWidth={2.5} height="1.875rem" width="1.875rem" />
                                     ) : (
-                                        <ChevronUp strokeWidth={2.5} height={30} width={30} />
+                                        <ChevronUp strokeWidth={2.5} height="1.875rem" width="1.875rem" />
                                     )}
-                                    <span className="font-[580] text-[18px]">Today</span>
+                                    <span className="font-[580] text-[1.125rem]">Today</span>
                                     <span className="text-sm text-[#a5a5a5]">•</span>
-                                    <span className="text-[15px] font-[580] text-[#a5a5a5]">
+                                    <span className="text-[0.9375rem] font-[580] text-[#a5a5a5]">
                                         {todayReminders.length}
                                     </span>
                                 </div>
@@ -67,7 +67,7 @@ export function Reminders() {
                                 >
                                     <div className="flex items-start gap-3 flex-1">
                                         <div className="flex-1 min-w-0">
-                                            <p className="text-[15px] text-[#333333] leading-relaxed font-[550]">
+                                            <p className="text-[0.9375rem] text-[#333333] leading-relaxed font-[550]">
                                                 {reminder.text}
                                             </p>
                                         </div>
