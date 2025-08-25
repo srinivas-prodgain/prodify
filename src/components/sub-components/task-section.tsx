@@ -1,9 +1,13 @@
 import { TTask } from "@/types/ui"
 import { Button } from "../ui/button"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible"
-import { TasksTable } from "../tasks-table"
+import { TasksTable } from "./tasks-table"
 
 import { ChevronUp, ChevronDown } from "lucide-react"
+
+const TASK_STATUS = ['progress', 'todo', 'upcoming'] as const
+
+type TTaskStatus = typeof TASK_STATUS[number]
 
 const STATUS_CONFIG = {
     progress: { label: "IN PROGRESS", bgColor: "bg-[#abedee]" },
@@ -18,7 +22,7 @@ type TChevronIconProps = {
 
 
 type TTaskSectionProps = {
-    status: keyof typeof STATUS_CONFIG
+    status: TTaskStatus
     isOpen: boolean
     onToggle: (open: boolean) => void
     tasks: TTask[]

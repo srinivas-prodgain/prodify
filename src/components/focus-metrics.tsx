@@ -2,7 +2,7 @@
 
 import { Clock } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { CircularProgress } from "@/components/circular-progress"
+import { CircularProgress } from "@/components/sub-components/circular-progress"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { focusMetrics } from "@/data/dummydata"
 
