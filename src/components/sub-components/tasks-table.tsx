@@ -15,9 +15,9 @@ export function TasksTable({ tasks }: TasksTableProps) {
         <Table className="border-b-[0.09rem] border-gray-200">
             <TableHeader className="border-b-[0.09rem] border-gray-200">
                 <TableRow className="border-b-[0.09rem] hover:bg-transparent">
-                    <TableHead className="text-[#a5a5a5] font-medium pl-0 text-[0.75rem]">Name</TableHead>
-                    <TableHead className="text-[#a5a5a5] font-medium text-center pl-0 text-[0.75rem]">Priority</TableHead>
-                    <TableHead className="text-[#a5a5a5] font-medium text-right pr-0 text-[0.75rem]">Due date</TableHead>
+                    <TableHead className="text-gray-medium font-medium pl-0 text-[0.75rem]">Name</TableHead>
+                    <TableHead className="text-gray-medium font-medium text-center pl-0 text-[0.75rem]">Priority</TableHead>
+                    <TableHead className="text-gray-medium font-medium text-right pr-0 text-[0.75rem]">Due date</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -26,14 +26,14 @@ export function TasksTable({ tasks }: TasksTableProps) {
                         <TableCell className="py-3 pl-0">
                             <div className="flex items-center gap-2">
                                 <ChevronDown className="size-4" strokeWidth={2} />
-                                <div className="size-[0.56rem] bg-[#84dacf] rounded-[0.13rem]"></div>
+                                <div className="size-[0.56rem] bg-teal-light rounded-[0.13rem]"></div>
                                 <span className="font-medium text-gray-900">{task.name}</span>
                             </div>
                         </TableCell>
                         <TableCell className="text-center pl-0">
                             <span className={`p-[0.25rem] rounded text-[0.63rem] font-[580] ${task.priority === 'High' ? 'bg-[#ffc1c2]' :
                                 task.priority === 'Medium' ? 'bg-[#f9d2b0]' :
-                                    'bg-[#f2f3f7]'
+                                    'bg-gray-section'
                                 }`}>
                                 {task.priority}
                             </span>

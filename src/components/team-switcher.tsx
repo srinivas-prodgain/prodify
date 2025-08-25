@@ -60,7 +60,7 @@ export function TeamSwitcher({
                 <span className="truncate font-medium text-[0.87rem]">{activeTeam.name}</span>
                 <span className="truncate text-[0.56rem] text-gray-400">{activeTeam.status === "online" ? "Online" : activeTeam.status === "away" ? "Away" : "Offline"}</span>
               </div>
-              <ChevronDown className={`ml-auto ${!open && 'hidden'} size-4`} color="#a5a5a5" strokeWidth={2.5} />
+              <ChevronDown className={`ml-auto text-gray-medium ${!open && 'hidden'} size-4`} strokeWidth={2.5} />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent

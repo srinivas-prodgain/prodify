@@ -21,14 +21,14 @@ export default function Page() {
     const dateString = getTheCurrentDate()
 
     return (
-        <div className="flex flex-1 flex-col gap-4 bg-[#fdfbff] bg-[linear-gradient(#f3f0f6_1px,transparent_1px),linear-gradient(90deg,#f3f0f6_1px,transparent_1px)] bg-[size:55px_55px] bg-[position:-8px_-20px]">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#fdfbff] to-[#fdfbff] pointer-events-none z-0"></div>
+        <div className="flex flex-1 flex-col gap-4 bg-bg-purple-lightest bg-[linear-gradient(theme(colors.bg-purple-subtle)_1px,transparent_1px),linear-gradient(90deg,theme(colors.bg-purple-subtle)_1px,transparent_1px)] bg-[size:55px_55px] bg-[position:-8px_-20px]">
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-bg-purple-lightest to-bg-purple-lightest pointer-events-none z-0"></div>
             <div className="relative z-10 p-4 sm:p-9">
                 <Card className="w-full border-0 shadow-none bg-transparent pt-0">
                     <CardContent className="p-0">
                         <div className="flex flex-col xl:flex-row xl:items-end gap-6 xl:gap-10">
                             <div className="flex flex-col gap-5">
-                                <div className="text-[15px] font-[580] flex items-center gap-2">
+                                <div className="text-[0.94rem] font-[580] flex items-center gap-2">
                                     {dateString}
                                     <SidebarTrigger className="ml-2" />
                                 </div>
@@ -37,7 +37,7 @@ export default function Page() {
                                     <h1 className="text-2xl xs:text-3xl sm:text-4xl font-[700] text-foreground">
                                         Hello, Courtney
                                     </h1>
-                                    <p className="text-xl xs:text-2xl md:text-3xl lg:text-4xl font-[560] bg-gradient-to-r from-[#26e5cc] to-[#667bda] bg-clip-text text-transparent">
+                                    <p className="text-xl xs:text-2xl md:text-3xl lg:text-4xl font-[560] bg-gradient-to-r from-brand-teal to-brand-purple-primary bg-clip-text text-transparent">
                                         How can I help you today?
                                     </p>
                                 </div>
@@ -45,7 +45,7 @@ export default function Page() {
                             <div className="flex flex-wrap gap-3 w-full sm:w-auto items-end">
                                 <Button className="text-white rounded-full py-3 sm:py-4 lg:py-[22px] font-medium max-w-[250px] bg-[linear-gradient(144deg,rgba(154,87,255,1)_19%,rgba(170,119,247,1)_41%,rgba(214,197,235,1)_92%)]">
                                     <StarIcon />
-                                    <span className="text-sm lg:text-[15px] font-[550] mr-1">Ask AI</span>
+                                    <span className="text-sm lg:text-[0.94rem] font-[550] mr-1">Ask AI</span>
                                 </Button>
 
                                 <Button variant="outline" className={OUTLINE_BUTTON_STYLES}>
@@ -81,7 +81,7 @@ export default function Page() {
                     className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-[radial-gradient(circle_at_center,_#6d4efc_0%,_#7d6dfd_50%,_#c6b9ff_100%)] shadow-[0_0_40px_10px_rgba(236,133,255,0.6)] text-white z-50"
                     size="icon"
                 >
-                    <StarIcon className="size-9 absolute top-[12px] left-[8px]" />
+                    <StarIcon className="size-9 absolute top-[0.75rem] left-[0.50rem]" />
                 </Button>
             </div>
         </div>

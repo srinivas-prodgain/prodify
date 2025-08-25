@@ -29,7 +29,7 @@ export function NavProjects({
         <Button
           variant="ghost"
           size="sm"
-          className="h-6 text-xs font-medium text-[#6d67c1] bg-[#f5f6ff] hover:bg-[#f5f4ff] hover:text-[#ac45ff] hover:border-[#ac45ff] rounded-full p-3 flex items-center gap-[2px] "
+          className="h-6 text-xs font-medium text-[#6d67c1] bg-[#f5f6ff] hover:bg-purple-light hover:text-[#ac45ff] hover:border-[#ac45ff] rounded-full p-3 flex items-center gap-[2px] "
         >
           <Plus className="size-2" strokeWidth={3} />
           <span className="text-sm font-medium">Add</span>
@@ -38,7 +38,7 @@ export function NavProjects({
       <SidebarMenu>
         {projects.map((item) => (
           <SidebarMenuItem key={item.name} >
-            <SidebarMenuButton asChild className="p-4 mt-1 hover:bg-[#f5f4ff] cursor-pointer">
+            <SidebarMenuButton asChild className="p-4 mt-1 hover:bg-purple-light cursor-pointer">
               <a href={item.url} className="flex items-center gap-3">
                 <div    
                   className="w-2.5 h-2.5 flex-shrink-0 rounded-xs"

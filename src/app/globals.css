@@ -37,6 +37,30 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+
+  /* Frequently used brand colors */
+  --color-brand-purple-primary: #667bda;
+  --color-brand-teal: #26e5cc;
+  --color-brand-purple-secondary: #6742ED;
+  --color-brand-purple-light: #8379c9;
+  --color-brand-purple-accent: #ac45ff;
+  --color-brand-purple-subtle: #5754ac;
+
+  /* Frequently used gray tones */
+  --color-gray-medium: #a5a5a5;
+  --color-gray-light: #b9b9b9;
+  --color-gray-section: #f2f3f7;
+
+  /* Frequently used background colors */
+  --color-bg-purple-lightest: #fdfbff;
+  --color-bg-purple-light: #f5f4ff;
+  --color-bg-purple-subtle: #f3f0f6;
+  --color-bg-purple-pink: #ded1f1;
+
+  /* Frequently used accent colors */
+  --color-teal-light: #84dacf;
+  --color-orange-accent: #ffae65;
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

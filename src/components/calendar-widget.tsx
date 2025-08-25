@@ -128,7 +128,7 @@ export function CalendarWidget() {
         <Card className="rounded-xl border py-4 shadow-none">
             <CardHeader className="flex flex-row items-center justify-between">
                 <div className="flex items-center gap-2">
-                    <CalendarDays className="text-[#8379c9] size-5 mr-[0.25rem]" strokeWidth={2} />
+                    <CalendarDays className="text-brand-purple-light size-5 mr-[0.25rem]" strokeWidth={2} />
                     <CardTitle className="text-lg font-[580] mr-[0.31rem]">Calendar</CardTitle>
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
@@ -168,7 +168,7 @@ export function CalendarWidget() {
                             let textClass = 'text-gray-400'
 
                             if (selected) {
-                                bgClass = 'bg-[#736edf] text-white'
+                                bgClass = 'bg-brand-purple-light text-white'
                                 textClass = 'text-white'
                             } else if (todayCheck) {
                                 bgClass = 'bg-blue-500 text-white'
@@ -186,7 +186,7 @@ export function CalendarWidget() {
                                     </div>
                                     <div className="text-lg font-semibold">{String(date.getDate()).padStart(2, '0')}</div>
                                     {isEvent && (
-                                        <div className="size-1 rounded-full mx-auto bg-[#736edf] absolute bottom-0 left-1/2 -translate-x-1/2" />
+                                        <div className="size-1 rounded-full mx-auto bg-brand-purple-light absolute bottom-0 left-1/2 -translate-x-1/2" />
                                     )}
                                 </div>
                             )
@@ -202,7 +202,7 @@ export function CalendarWidget() {
                 <div className="space-y-3 mt-3 px-[1.5rem]">
                     {displayEvents.length > 0 ? (
                         displayEvents.map((event) => (
-                            <div key={event.id} className="rounded-xl p-4 bg-[#f5f6ff] md:p-7">
+                            <div key={event.id} className="rounded-xl p-4 bg-bg-purple-light md:p-7">
                                 <div className="flex items-start justify-between mb-3">
                                     <div>
                                         <h3 className="font-semibold text-gray-900 mb-1">{event.title}</h3>
@@ -245,7 +245,7 @@ export function CalendarWidget() {
                                                 i < 4 ? (
                                                     <div
                                                         key={i}
-                                                        className={`text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-full relative bg-[#ded1f1] size-8 overflow-hidden border-[0.17rem] border-white ${i > 0 ? 'ml-[-0.50rem]' : ''}`}
+                                                        className={`text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-full relative bg-bg-purple-pink size-8 overflow-hidden border-[0.17rem] border-white ${i > 0 ? 'ml-[-0.50rem]' : ''}`}
                                                     >
                                                         <Image
                                                             src={attendee.avatar || ''}

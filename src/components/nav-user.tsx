@@ -20,7 +20,7 @@ export function NavUser() {
     <SidebarGroup className="group-data-[collapsible=icon]:hidden p-0">
       <SidebarMenu className="flex flex-col gap-5 w-full">
         <SidebarMenuItem>
-          <SidebarMenuButton tooltip="Settings" className={`p-3 mt-1 hover:bg-[#f5f4ff] hover:text-[#5754ac] cursor-pointer`}>
+          <SidebarMenuButton tooltip="Settings" className={`p-3 mt-1 hover:bg-purple-light hover:text-brand-purple-subtle cursor-pointer`}>
             <Settings className="mr-2" />
             <span className="text-sm text-black">Settings</span>
           </SidebarMenuButton>
@@ -31,7 +31,7 @@ export function NavUser() {
           <CardHeader className="px-3">
             <CardTitle >
               <div className="flex items-center gap-2 relative">
-                <StarIcon className="text-yellow-200 rotate-45 absolute top-0 left-0 size-5" />
+              <StarIcon className="text-yellow-200 rotate-45 absolute top-0 left-0 size-5"/>
                 <span className="text-white text-xl font-[580] relative right-[-20px] top-[-5px]">
                   prodify
                 </span>
