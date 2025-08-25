@@ -100,7 +100,7 @@ export function FocusMetrics() {
                                         </div>
                                     </div>
                                 </TooltipTrigger>
-                                <TooltipContent side="top-left" sideOffset={8}>
+                                <TooltipContent side="top" sideOffset={8}>
                                     <p className="text-sm font-medium leading-relaxed">{metric.name}</p>
                                 </TooltipContent>
                             </Tooltip>
