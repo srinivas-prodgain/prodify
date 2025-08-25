@@ -30,7 +30,6 @@ import m2 from "../../public/m2.webp"
 import m3 from "../../public/m3.jpg"
 import m4 from "../../public/m1-bgr.png"
 
-// This is sample data.
 const data = {
   user: {
     name: "shadcn",

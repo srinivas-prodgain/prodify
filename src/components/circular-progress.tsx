@@ -10,7 +10,7 @@ type TCircularProgressProps = {
 export function CircularProgress({
     value,
     target,
-    color,  
+    color,
     size = 60
 }: TCircularProgressProps) {
     const percentage = Math.min((value / target) * 100, 100)
@@ -26,7 +26,6 @@ export function CircularProgress({
                 width={size}
                 height={size}
             >
-                {/* Background circle */}
                 <circle
                     cx={size / 2}
                     cy={size / 2}
@@ -35,7 +34,6 @@ export function CircularProgress({
                     strokeWidth={strokeWidth}
                     fill="transparent"
                 />
-                {/* Progress circle */}
                 <circle
                     cx={size / 2}
                     cy={size / 2}
@@ -49,7 +47,6 @@ export function CircularProgress({
                     className="transition-all duration-300 ease-in-out"
                 />
             </svg>
-            {/* Center content */}
             <div className="absolute inset-0 flex items-center justify-center">
                 <span className="text-sm font-[580] text-foreground">
                     {value}h

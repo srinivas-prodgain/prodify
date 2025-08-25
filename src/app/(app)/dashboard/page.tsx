@@ -10,25 +10,15 @@ import { MyTasks } from "@/components/my-tasks"
 import { ProjectsGrid } from "@/components/projects-grid"
 import { Reminders } from "@/components/reminders"
 
-const OUTLINE_BUTTON_STYLES = "rounded-full px-3 sm:px-4 py-3 sm:py-4 lg:py-[20px] font-[590] border-[#84dacf] border-2 max-w-[200px] text-sm lg:text-[16px]"
 
-const StarIcon = ({ className = "size-4 lg:size-5" }: { className?: string }) => (
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        className={`text-yellow-200 rotate-45 ${className}`}
-        fill="currentColor"
-    >
-        <path d="M12 2c1.2 3.5 3.5 5.8 7 7-3.5 1.2-5.8 3.5-7 7-1.2-3.5-3.5-5.8-7-7 3.5-1.2 5.8-3.5 7-7z" />
-    </svg>
-)
+import { OUTLINE_BUTTON_STYLES } from "@/constants/all-constants"
+import { StarIcon } from "@/constants/start-icon"
+import { getTheCurrentDate } from "@/utils/get-the-c-date"
+
+
 
 export default function Page() {
-    const dateString = new Date().toLocaleDateString('en-US', {
-        weekday: 'short',
-        month: 'long',
-        day: 'numeric'
-    })
+    const dateString = getTheCurrentDate()
 
     return (
         <div className="flex flex-1 flex-col gap-4 bg-[#fdfbff] bg-[linear-gradient(#f3f0f6_1px,transparent_1px),linear-gradient(90deg,#f3f0f6_1px,transparent_1px)] bg-[size:55px_55px] bg-[position:-8px_-20px]">

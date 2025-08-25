@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/sidebar"
 import { Button } from "./ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card"
+import { StarIcon } from "@/constants/start-icon"
 
 export function NavUser() {
 
@@ -30,16 +31,7 @@ export function NavUser() {
           <CardHeader className="px-3">
             <CardTitle >
               <div className="flex items-center gap-2 relative">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  className="text-yellow-200 rotate-45 absolute top-0 left-0"
-                  fill="currentColor"
-                >
-                  <path d="M12 2c1.2 3.5 3.5 5.8 7 7-3.5 1.2-5.8 3.5-7 7-1.2-3.5-3.5-5.8-7-7 3.5-1.2 5.8-3.5 7-7z" />
-                </svg>
+                <StarIcon className="text-yellow-200 rotate-45 absolute top-0 left-0 size-5" />
                 <span className="text-white text-xl font-[580] relative right-[-20px] top-[-5px]">
                   prodify
                 </span>

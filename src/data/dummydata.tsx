@@ -1,10 +1,10 @@
 import { TCalendarEvent, TFocusMetric, TGoal, TProject, TReminder, TTask } from "@/types/ui";
-
+import { Target, Users, AlertTriangle, Rocket, Brain, Diamond } from "lucide-react";
 
 export const projects: TProject[] = [
-    { id: 1, name: "Product launch", tasks: 6, teammates: 12, color: "bg-purple-100", icon: "Rocket" },
-    { id: 2, name: "Team brainstorm", tasks: 2, teammates: 32, color: "bg-blue-100", icon: "Brain" },
-    { id: 3, name: "Branding launch", tasks: 4, teammates: 9, color: "bg-cyan-100", icon: "Diamond" }
+    { id: 1, name: "Product launch", tasks: 6, teammates: 12, color: "bg-purple-100", icon: <Rocket className="size-6 text-purple-500" strokeWidth={2} /> },
+    { id: 2, name: "Team brainstorm", tasks: 2, teammates: 32, color: "bg-blue-100", icon: <Brain className="size-6 text-blue-500" strokeWidth={2} /> },
+    { id: 3, name: "Branding launch", tasks: 4, teammates: 9, color: "bg-cyan-100", icon: <Diamond className="size-6 text-cyan-500" strokeWidth={2} /> }
 ]
 
 export const tasks: TTask[] = [
@@ -74,6 +74,7 @@ export const calendarEvents: TCalendarEvent[] = [
         startTime: "3:30",
         endTime: "4:30 pm",
         type: "meeting",
+        platform: "Google Meet",
         location: "Conference Room A",
         attendees: [
             { id: 8, name: "Jessica Brown", avatar: "" },
@@ -105,6 +106,7 @@ export const calendarEvents: TCalendarEvent[] = [
         startTime: "16:00",
         endTime: "5:00 pm",
         type: "meeting",
+        platform: "Microsoft Teams",
         location: "Office",
         attendees: [
             { id: 11, name: "Chris Martin", avatar: "" },
@@ -163,7 +165,7 @@ export const focusMetrics: TFocusMetric[] = [
         value: 6.5,
         target: 8,
         color: "#26e5cc",
-        icon: "Target",
+        icon:  <Target className="size-4" />,
         description: "Hours of focused work"
     },
     {
@@ -172,7 +174,7 @@ export const focusMetrics: TFocusMetric[] = [
         value: 3,
         target: 4,
         color: "#667bda",
-        icon: "Users",
+        icon: <Users className="size-4" />,
         description: "Hours in meetings"
     },
     {
@@ -181,7 +183,7 @@ export const focusMetrics: TFocusMetric[] = [
         value: 1.5,
         target: 1,
         color: "#ffae65",
-        icon: "AlertTriangle",
+        icon: <AlertTriangle className="size-4" />,
         description: "Hours lost to distractions"
     },
     // {

@@ -45,23 +45,23 @@ export function TeamSwitcher({
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton
               size="lg"
-              className={`data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground border-gray-120 rounded-lg overflow-visible ${open ? 'border-[1.2px]' : ''}`}
+              className={`data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground border-gray-120 rounded-lg overflow-visible ${open ? 'border-[0.075rem]' : ''}`}
             >
-              <div className="text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-full mr-1 relative bg-[#ded1f1] h-8 w-8">
+              <div className="text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-full mr-1 relative bg-[#ded1f1] size-8">
                 <div className="w-full h-full flex items-center justify-center overflow-hidden rounded-full">
                   <Image src={activeTeam.image} alt={activeTeam.name} width={32} height={32} className="w-full h-full object-cover rounded-full mt-2" />
                 </div>
-                <div className={`w-2 h-2 absolute bottom-0 right-0 rounded-full ${activeTeam.status === "online" ? "bg-green-300" : activeTeam.status === "away" ? "bg-yellow-300" : "bg-red-300"} z-50`} />
+                <div className={`size-2 absolute bottom-0 right-0 rounded-full ${activeTeam.status === "online" ? "bg-green-300" : activeTeam.status === "away" ? "bg-yellow-300" : "bg-red-300"} z-50`} />
               </div>
               <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-medium text-[14px]">{activeTeam.name}</span>
-                <span className="truncate text-[9px] text-gray-400">{activeTeam.status === "online" ? "Online" : activeTeam.status === "away" ? "Away" : "Offline"}</span>
+                <span className="truncate font-medium text-[0.875rem]">{activeTeam.name}</span>
+                <span className="truncate text-[0.5625rem] text-gray-400">{activeTeam.status === "online" ? "Online" : activeTeam.status === "away" ? "Away" : "Offline"}</span>
               </div>
-              <ChevronDown className={`ml-auto ${!open && 'hidden'}`} color="#a5a5a5" strokeWidth={2.5} height={25} width={25} />
+              <ChevronDown className={`ml-auto ${!open && 'hidden'} size-4`} color="#a5a5a5" strokeWidth={2.5} />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
-            className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
+            className="w-(--radix-dropdown-menu-trigger-width) min-w-[3.5rem] rounded-lg"
             align="start"
             side={isMobile ? "bottom" : "right"}
             sideOffset={4}
@@ -77,7 +77,7 @@ export function TeamSwitcher({
               >
                 <div className="flex size-6 items-center justify-center relative">
                   <Image src={team.image} alt={team.name} width={32} height={32} className="object-cover rounded-full" />
-                  <div className={`w-2 h-2 absolute bottom-0 right-0 rounded-full ${team.status === "online" ? "bg-green-300" : team.status === "away" ? "bg-yellow-300" : "bg-red-300"}`} />
+                  <div className={`size-2 absolute bottom-0 right-0 rounded-full ${team.status === "online" ? "bg-green-300" : team.status === "away" ? "bg-yellow-300" : "bg-red-300"}`} />
                 </div>
                 {team.name}
                 <DropdownMenuShortcut>⌘{index + 1}</DropdownMenuShortcut>
