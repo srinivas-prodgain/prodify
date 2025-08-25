@@ -1,4 +1,3 @@
-import { LucideIcon } from "lucide-react"
 
 const CalendarEventTypes = ['meeting', 'call', 'event', 'reminder'] as const
 const TaskPriorities = ['High', 'Medium', 'Low'] as const
@@ -6,13 +5,13 @@ const TaskStatuses = ['progress', 'todo', 'upcoming'] as const
 const CalendarEventPlatforms = ['Google Meet', 'Zoom', 'Microsoft Teams'] as const
 export const FilterOptions = ['Recents', 'All Projects', 'Favorites', 'Archived'] as const
 
-export type TCalendarEventType = typeof CalendarEventTypes[number]
-export type TTaskPriority = typeof TaskPriorities[number]
-export type TTaskStatus = typeof TaskStatuses[number]
-export type TCalendarEventPlatform = typeof CalendarEventPlatforms[number]
+type TCalendarEventType = typeof CalendarEventTypes[number]
+type TTaskPriority = typeof TaskPriorities[number]
+type TTaskStatus = typeof TaskStatuses[number]
+type TCalendarEventPlatform = typeof CalendarEventPlatforms[number]
 export type TFilterOption = typeof FilterOptions[number]
 
-export type TAttendee = {
+type TAttendee = {
     id: number
     name: string
     avatar?: string
@@ -47,7 +46,7 @@ export type TProject = {
     tasks: number
     teammates: number
     color: string
-    icon: React.ReactNode
+    icon: string
 }
 
 export type TReminder = {
@@ -59,17 +58,6 @@ export type TReminder = {
     color: string
 }
 
-
-export type TNavItem = {
-    title: string
-    url: string
-    icon?: LucideIcon
-    isActive?: boolean
-    items?: {
-        title: string
-        url: string
-    }[]
-}
 
 export type TGoal = {
     id: number
@@ -86,6 +74,6 @@ export type TFocusMetric = {
     value: number
     target: number
     color: string
-    icon: React.ReactNode
+    icon: string
     description: string
 }

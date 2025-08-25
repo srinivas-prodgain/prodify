@@ -8,64 +8,21 @@ import {
     Trash2,
     Timer,
     Check
-
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
-import { TReminder } from "@/types/ui"
-
-
-
-
-
-const reminders: TReminder[] = [
-    {
-        id: 1,
-        text: "Assess any new risks identified in the morning meeting.",
-        category: "Today",
-        isToday: true,
-        priority: "High",
-        color: "#8b5cf6"
-    },
-    {
-        id: 2,
-        text: "Get the key points from our previous stand-up meeting.",
-        category: "Today",
-        isToday: true,
-        priority: "Medium",
-        color: "#06b6d4"
-    },
-    {
-        id: 3,
-        text: "Review and update project timeline for Q4 deliverables.",
-        category: "This Week",
-        isToday: false,
-        priority: "Medium",
-        color: "#f59e0b"
-    },
-    {
-        id: 4,
-        text: "Schedule one-on-one meetings with team members.",
-        category: "This Week",
-        isToday: false,
-        priority: "Low",
-        color: "#10b981"
-    }
-]
+import { reminders } from "@/data/dummydata"
 
 export function Reminders() {
     const [isTodayOpen, setIsTodayOpen] = useState(true)
 
-
     const handleReminderNotify = (reminderId: number) => {
         console.log(`Notify reminder: ${reminderId}`)
-
     }
 
     const handleReminderDelete = (reminderId: number) => {
         console.log(`Delete reminder: ${reminderId}`)
-
     }
 
 
@@ -119,23 +76,23 @@ export function Reminders() {
                                         <Button
                                             variant="ghost"
                                             size="sm"
-                                            className="w-9 h-9 p-0 hover:bg-blue-50 hover:text-blue-600"
+                                            className="size-9 p-0 hover:bg-blue-50 hover:text-blue-600"
                                             onClick={() => handleReminderNotify(reminder.id)}
                                         >
-                                            <Bell className="w-4 h-4" />
+                                            <Bell className="size-4" />
                                         </Button>
                                         <Button
                                             variant="ghost"
                                             size="sm"
-                                            className="w-9 h-9 p-0 hover:bg-red-50 hover:text-red-600"
+                                            className="size-9 p-0 hover:bg-red-50 hover:text-red-600"
                                             onClick={() => handleReminderDelete(reminder.id)}
                                         >
-                                            <Trash2 className="w-4 h-4" />
+                                            <Trash2 className="size-4" />
                                         </Button>
                                         <Button
                                             variant="ghost"
                                             size="sm"
-                                            className="w-6 h-6 p-0 bg-[#30d5d1] text-white rounded-full hover:bg-[#30d5d1]/80 hover:text-white"
+                                            className="size-6 p-0 bg-[#30d5d1] text-white rounded-full hover:bg-[#30d5d1]/80 hover:text-white"
                                             onClick={() => handleReminderDelete(reminder.id)}
                                         >
                                             <Check />
