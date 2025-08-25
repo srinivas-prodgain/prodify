@@ -48,11 +48,11 @@ export const TaskSection = ({
                 <Button variant="ghost" className="w-full justify-between h-auto hover:bg-transparent p-0 py-2">
                     <div className="flex items-center gap-2">
                         <ChevronIcon isOpen={isOpen} />
-                        <span className={`px-2 py-1 rounded-[0.3125rem] text-xs font-[580] text-black ${config.bgColor}`}>
+                        <span className={`px-2 py-1 rounded-[0.31rem] text-xs font-[580] text-black ${config.bgColor}`}>
                             {config.label}
                         </span>
                         <span className="text-sm text-black">•</span>
-                        <span className="text-[0.75rem] text-black mb-[0.125rem]">{tasks.length} tasks</span>
+                        <span className="text-[0.75rem] text-black mb-[0.13rem]">{tasks.length} tasks</span>
                     </div>
                 </Button>
             </CollapsibleTrigger>

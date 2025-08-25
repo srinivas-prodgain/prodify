@@ -4,7 +4,7 @@ import { Clock } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { CircularProgress } from "@/components/sub-components/circular-progress"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
-import { focusMetrics } from "@/data/dummydata"
+import { focusMetrics } from "@/data/dummy-data"
 
 
 
@@ -47,15 +47,15 @@ export function FocusMetrics() {
                                                         {metric.name}
                                                     </h4>
                                                 </div>
-                                                <p className="text-[0.875rem] text-[#b9b9b9]">
+                                                <p className="text-[0.88rem] text-[#b9b9b9]">
                                                     {metric.description}
                                                 </p>
                                             </div>
                                             <div className="text-right">
-                                                <div className="text-[0.9375rem] font-[580] text-foreground">
+                                                <div className="text-[0.94rem] font-[580] text-foreground">
                                                     {metric.value}/{metric.target}h
                                                 </div>
-                                                <div className="text-[0.8125rem] text-[#b9b9b9]">
+                                                <div className="text-[0.81rem] text-[#b9b9b9]">
                                                     {Math.round((metric.value / metric.target) * 100)}%
                                                 </div>
                                             </div>
@@ -78,12 +78,12 @@ export function FocusMetrics() {
                                                             {metric.name}
                                                         </h4>
                                                     </div>
-                                                    <p className="text-[0.8125rem] text-[#b9b9b9] truncate">
+                                                    <p className="text-[0.81rem] text-[#b9b9b9] truncate">
                                                         {metric.description}
                                                     </p>
                                                 </div>
                                                 <div className="text-right flex-shrink-0">
-                                                    <div className="text-[0.875rem] font-[580] text-foreground">
+                                                    <div className="text-[0.88rem] font-[580] text-foreground">
                                                         {metric.value}/{metric.target}h
                                                     </div>
                                                     <div className="text-[0.75rem] text-[#b9b9b9]">

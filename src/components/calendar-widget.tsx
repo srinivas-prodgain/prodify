@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import Image from "next/image"
 import { MONTHS, DAYS } from "@/constants/all-constants"
-import { calendarEvents } from "@/data/dummydata"
+import { calendarEvents } from "@/data/dummy-data"
 import { getPlatformIcon } from "@/utils/get-meet-icons"
 
 export function CalendarWidget() {
@@ -129,7 +129,7 @@ export function CalendarWidget() {
             <CardHeader className="flex flex-row items-center justify-between">
                 <div className="flex items-center gap-2">
                     <CalendarDays className="text-[#8379c9] size-5 mr-[0.25rem]" strokeWidth={2} />
-                    <CardTitle className="text-lg font-[580] mr-[0.3125rem]">Calendar</CardTitle>
+                    <CardTitle className="text-lg font-[580] mr-[0.31rem]">Calendar</CardTitle>
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <Button variant="ghost" size="sm" className="text-sm text-black hover:bg-purple-50 flex items-center gap-0 font-[550]">
@@ -152,7 +152,7 @@ export function CalendarWidget() {
                 </div>
             </CardHeader>
             <CardContent className="p-0">
-                <div className="flex items-center px-[0.875rem]">
+                <div className="flex items-center px-[0.88rem]">
                     <div className="w-10 flex justify-start">
                         <Button variant="ghost" size="sm" onClick={goToPreviousWeek} className="flex-shrink-0 p-0">
                             <ChevronLeft className="size-4" />
@@ -234,7 +234,7 @@ export function CalendarWidget() {
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-2 bg-white py-1 px-2 md:px-3 rounded-full">
                                         {getPlatformIcon(event.platform)}
-                                        <span className="text-[0.8125rem] text-gray-800 font-medium md:text-[0.9375rem]">
+                                        <span className="text-[0.81rem] text-gray-800 font-medium md:text-[0.94rem]">
                                             {event.platform || event.location || 'In Person'}
                                         </span>
                                     </div>
@@ -245,7 +245,7 @@ export function CalendarWidget() {
                                                 i < 4 ? (
                                                     <div
                                                         key={i}
-                                                        className={`text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-full relative bg-[#ded1f1] size-8 overflow-hidden border-[0.16875rem] border-white ${i > 0 ? 'ml-[-0.5rem]' : ''}`}
+                                                        className={`text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-full relative bg-[#ded1f1] size-8 overflow-hidden border-[0.17rem] border-white ${i > 0 ? 'ml-[-0.50rem]' : ''}`}
                                                     >
                                                         <Image
                                                             src={attendee.avatar || ''}
@@ -258,9 +258,9 @@ export function CalendarWidget() {
                                                 ) : i === 4 ? (
                                                     <div
                                                         key={i}
-                                                        className={`text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-full relative bg-[#6c39d3] size-8 overflow-hidden border-0 ${i > 0 ? 'ml-[-0.5rem]' : ''}`}
+                                                        className={`text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-full relative bg-[#6c39d3] size-8 overflow-hidden border-0 ${i > 0 ? 'ml-[-0.50rem]' : ''}`}
                                                     >
-                                                        <div className="flex items-center justify-center gap-[0.0625rem]">
+                                                        <div className="flex items-center justify-center gap-[0.06rem]">
                                                             <Plus className="size-2 text-white" strokeWidth={3} />
                                                             <span className="text-white text-[0.75rem] font-[450]">
                                                                 {event.attendees.length - 4}

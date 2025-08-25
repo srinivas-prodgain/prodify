@@ -15,7 +15,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { FilterOptions, TFilterOption } from "@/types/ui"
-import { projects } from "@/data/dummydata"
+import { projects } from "@/data/dummy-data"
 
 
 
@@ -63,7 +63,7 @@ export function ProjectsGrid() {
                             className="size-12 rounded-2xl flex items-center justify-center flex-shrink-0"
                             style={{
                                 backgroundImage:
-                                    'url("data:image/svg+xml,%3csvg width=\'100%25\' height=\'100%25\' xmlns=\'http://www.w3.org/2000/svg\'%3e%3crect width=\'100%25\' height=\'100%25\' fill=\'none\' rx=\'0.9375rem\' ry=\'0.9375rem\' stroke=\'%236742EDFF\' stroke-width=\'0.1875rem\' stroke-dasharray=\'0.25rem%2c0.5rem\' stroke-dashoffset=\'3.5rem\' stroke-linecap=\'square\'/%3e%3c/svg%3e")',
+                                    'url("data:image/svg+xml,%3csvg width=\'100%25\' height=\'100%25\' xmlns=\'http://www.w3.org/2000/svg\'%3e%3crect width=\'100%25\' height=\'100%25\' fill=\'none\' rx=\'0.94rem\' ry=\'0.94rem\' stroke=\'%236742EDFF\' stroke-width=\'0.19rem\' stroke-dasharray=\'0.25rem%2c0.5rem\' stroke-dashoffset=\'3.5rem\' stroke-linecap=\'square\'/%3e%3c/svg%3e")',
                             }}
                         >
                             <Plus className="size-4 text-[#6742ED]" strokeWidth={1.8} />
@@ -81,7 +81,7 @@ export function ProjectsGrid() {
                             </div>
                             <div className="flex-1 min-w-0">
                                 <h4 className="font-[550] text-[1rem] leading-tight text-black">{project.name}</h4>
-                                <p className="text-[0.875rem] text-[#989898]">
+                                <p className="text-[0.88rem] text-[#989898]">
                                     {project.tasks} tasks • {project.teammates} teammates
                                 </p>
                             </div>
