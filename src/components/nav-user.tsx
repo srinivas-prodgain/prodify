@@ -22,7 +22,7 @@ export function NavUser() {
         <SidebarMenuItem>
           <SidebarMenuButton tooltip="Settings" className={`p-3 mt-1 hover:bg-purple-light hover:text-brand-purple-subtle cursor-pointer`}>
             <Settings className="mr-2" />
-            <span className="text-sm text-black">Settings</span>
+            <span className="text-sm">Settings</span>
           </SidebarMenuButton>
         </SidebarMenuItem>
         <Card

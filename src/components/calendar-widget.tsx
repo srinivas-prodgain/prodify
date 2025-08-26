@@ -132,7 +132,7 @@ export function CalendarWidget() {
                     <CardTitle className="text-lg font-[580] mr-[0.31rem]">Calendar</CardTitle>
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" size="sm" className="text-sm text-black hover:bg-purple-50 flex items-center gap-0 font-[550]">
+                            <Button variant="ghost" size="sm" className="text-sm hover:bg-purple-50 flex items-center gap-0 font-[550]">
                                 {MONTHS[selectedMonth]}
                                 <ChevronDown className="size-4 ml-1" />
                             </Button>
@@ -261,8 +261,8 @@ export function CalendarWidget() {
                                                         className={`text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-full relative bg-[#6c39d3] size-8 overflow-hidden border-0 ${i > 0 ? 'ml-[-0.50rem]' : ''}`}
                                                     >
                                                         <div className="flex items-center justify-center gap-[0.06rem]">
-                                                            <Plus className="size-2 text-white" strokeWidth={3} />
-                                                            <span className="text-white text-[0.75rem] font-[450]">
+                                                            <Plus className="size-2.5 text-white" strokeWidth={3} />
+                                                            <span className="text-white text-[0.91rem] font-[450]">
                                                                 {event.attendees.length - 4}
                                                             </span>
                                                         </div>

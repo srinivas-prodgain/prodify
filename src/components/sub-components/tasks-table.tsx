@@ -38,7 +38,7 @@ export function TasksTable({ tasks }: TasksTableProps) {
                                 {task.priority}
                             </span>
                         </TableCell>
-                        <TableCell className={`py-3 text-right text-black pr-0 ${task.dueDate === 'Today' ? 'text-[#ee4e4c]' : ''}`}>
+                        <TableCell className={`py-3 text-right pr-0 ${task.dueDate === 'Today' ? 'text-[#ee4e4c]' : ''}`}>
                             {task.dueDate}
                         </TableCell>
                     </TableRow>
