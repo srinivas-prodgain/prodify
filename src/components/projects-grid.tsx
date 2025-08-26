@@ -68,7 +68,7 @@ export function ProjectsGrid() {
                         >
                             <Plus className="size-4 text-brand-purple-secondary" strokeWidth={1.8} />
                         </div>
-                        <span className="text-[1rem] font-[550] text-black">Create new project</span>
+                        <span className="text-[1rem] font-[550]">Create new project</span>
                     </div>
 
                     {projects.map((project) => (
@@ -80,7 +80,7 @@ export function ProjectsGrid() {
                                 {project.icon}
                             </div>
                             <div className="flex-1 min-w-0">
-                                <h4 className="font-[550] text-[1rem] leading-tight text-black">{project.name}</h4>
+                                <h4 className="font-[550] text-[1rem] leading-tight">{project.name}</h4>
                                 <p className="text-[0.88rem] text-gray-medium">
                                     {project.tasks} tasks • {project.teammates} teammates
                                 </p>

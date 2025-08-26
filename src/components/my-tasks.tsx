@@ -37,21 +37,21 @@ export function MyTasks() {
                     <Button
                         variant="ghost"
                         size="sm"
-                        className="text-black hover:bg-purple-50 hover:text-brand-purple-secondary"
+                        className="hover:bg-purple-50 hover:text-brand-purple-secondary"
                     >
                         <Plus className="size-4" strokeWidth={2} />
                     </Button>
                     <Button
                         variant="ghost"
                         size="sm"
-                        className="text-black hover:bg-purple-50 hover:text-brand-purple-secondary"
+                        className="hover:bg-purple-50 hover:text-brand-purple-secondary"
                     >
                         <Maximize2 className="size-4" strokeWidth={2} />
                     </Button>
                     <Button
                         variant="ghost"
                         size="sm"
-                        className="text-black hover:bg-purple-50 hover:text-brand-purple-secondary"
+                        className="hover:bg-purple-50 hover:text-brand-purple-secondary"
                     >
                         <MoreHorizontal className="size-4" strokeWidth={2} />
                     </Button>

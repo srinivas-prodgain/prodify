@@ -43,8 +43,8 @@ export default function Page() {
                                 </div>
                             </div>
                             <div className="flex flex-wrap gap-3 w-full sm:w-auto items-end">
-                                <Button className="text-white rounded-full py-3 sm:py-4 lg:py-[22px] font-medium max-w-[250px] bg-[linear-gradient(144deg,rgba(154,87,255,1)_19%,rgba(170,119,247,1)_41%,rgba(214,197,235,1)_92%)]">
-                                    <StarIcon />
+                                <Button className="text-white rounded-full py-3 sm:py-4 lg:py-[22px] font-medium max-w-[250px] bg-[linear-gradient(144deg,#766be1,#766be1,#a292ed,#c7bef6,#d9d1f9)]">
+                                    <StarIcon className="size-3.5 mr-[-5px]"/>
                                     <span className="text-sm lg:text-[0.94rem] font-[550] mr-1">Ask AI</span>
                                 </Button>
 
