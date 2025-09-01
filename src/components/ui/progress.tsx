@@ -26,7 +26,10 @@ function Progress({ className, value = 0, ...props }: ProgressProps) {
             {...props}
         >
             <div
-                className={`h-full transition-all duration-300 ease-in-out ${getProgressColor(value)} rounded-full`}
+                className={cn(
+                    "h-full transition-all duration-300 ease-in-out rounded-full",
+                    getProgressColor(value)
+                )}
                 style={{ width: `${Math.min(100, Math.max(0, value))}%` }}
             />
         </div>

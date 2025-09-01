@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { FilterOptions, TFilterOption } from "@/types/ui"
 import { projects } from "@/data/dummy-data"
+import { cn } from "@/lib/utils"
 
 
 
@@ -45,7 +46,7 @@ export function ProjectsGrid() {
                                 <DropdownMenuItem
                                     key={filter}
                                     onClick={() => handleFilterChange(filter)}
-                                    className={selectedFilter === filter ? 'bg-purple-50' : ''}
+                                    className={cn(selectedFilter === filter && 'bg-purple-50')}
                                 >
                                     {filter}
                                 </DropdownMenuItem>
@@ -76,7 +77,10 @@ export function ProjectsGrid() {
                             key={project.id}
                             className="flex items-center gap-3 p-3 pl-0 rounded-lg h-16 transition-colors cursor-pointer"
                         >
-                            <div className={`size-12 rounded-lg ${project.color} flex items-center justify-center flex-shrink-0`}>
+                            <div className={cn(
+                                "size-12 rounded-lg flex items-center justify-center flex-shrink-0",
+                                project.color
+                            )}>
                                 {project.icon}
                             </div>
                             <div className="flex-1 min-w-0">
