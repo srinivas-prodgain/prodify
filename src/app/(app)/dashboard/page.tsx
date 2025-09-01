@@ -44,7 +44,7 @@ export default function Page() {
                             </div>
                             <div className="flex flex-wrap gap-3 w-full sm:w-auto items-end">
                                 <Button className="text-white rounded-full py-3 sm:py-4 lg:py-[22px] font-medium max-w-[250px] bg-[linear-gradient(144deg,#766be1,#766be1,#a292ed,#c7bef6,#d9d1f9)]">
-                                    <StarIcon className="size-3.5 mr-[-5px]"/>
+                                    <StarIcon className="size-3.5 mr-[-5px]" />
                                     <span className="text-sm lg:text-[0.94rem] font-[550] mr-1">Ask AI</span>
                                 </Button>
 
@@ -78,7 +78,7 @@ export default function Page() {
                 </div>
 
                 <Button
-                    className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-[radial-gradient(circle_at_center,_#6d4efc_0%,_#7d6dfd_50%,_#c6b9ff_100%)] shadow-[0_0_40px_10px_rgba(236,133,255,0.6)] text-white z-50"
+                    className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-[radial-gradient(circle_at_center,_#a881fb_60%,_#ffffff_100%)] shadow-[0_0_12px_2px_rgba(236,133,255,0.5)] text-white z-50"
                     size="icon"
                 >
                     <StarIcon className="size-9 absolute top-[0.75rem] left-[0.50rem]" />

@@ -2,6 +2,7 @@ import { TTask } from "@/types/ui"
 import { Button } from "../ui/button"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible"
 import { TasksTable } from "./tasks-table"
+import { cn } from "@/lib/utils"
 
 import { ChevronUp, ChevronDown } from "lucide-react"
 
@@ -48,7 +49,10 @@ export const TaskSection = ({
                 <Button variant="ghost" className="w-full justify-between h-auto hover:bg-transparent p-0 py-2">
                     <div className="flex items-center gap-2">
                         <ChevronIcon isOpen={isOpen} />
-                        <span className={`px-2 py-1 rounded-[0.31rem] text-xs font-[580] ${config.bgColor}`}>
+                        <span className={cn(
+                            "px-2 py-1 rounded-[0.31rem] text-xs font-[580]",
+                            config.bgColor
+                        )}>
                             {config.label}
                         </span>
                         <span className="text-sm">•</span>

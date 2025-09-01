@@ -21,6 +21,7 @@ import Image from "next/image"
 import { MONTHS, DAYS } from "@/constants/all-constants"
 import { calendarEvents } from "@/data/dummy-data"
 import { getPlatformIcon } from "@/utils/get-meet-icons"
+import { cn } from "@/lib/utils"
 
 export function CalendarWidget() {
     const today = new Date()
@@ -142,7 +143,7 @@ export function CalendarWidget() {
                                 <DropdownMenuItem
                                     key={month}
                                     onClick={() => handleMonthChange(index)}
-                                    className={selectedMonth === index ? 'bg-purple-50' : ''}
+                                    className={cn(selectedMonth === index && 'bg-purple-50')}
                                 >
                                     {month}
                                 </DropdownMenuItem>
@@ -158,7 +159,10 @@ export function CalendarWidget() {
                             <ChevronLeft className="size-4" />
                         </Button>
                     </div>
-                    <div className={`flex gap-1 flex-1 ${isSmallScreen ? 'justify-center' : 'justify-between'}`}>
+                    <div className={cn(
+                        "flex gap-1 flex-1",
+                        isSmallScreen ? "justify-center" : "justify-between"
+                    )}>
                         {getWeekDates.map((date, index) => {
                             const todayCheck = isToday(date)
                             const selected = isSelected(date)
@@ -179,9 +183,13 @@ export function CalendarWidget() {
                                 <div
                                     key={index}
                                     onClick={() => handleDateSelect(date)}
-                                    className={`text-center p-1 rounded-lg ${isSmallScreen ? 'min-w-[2.5rem]' : 'min-w-[2.8rem]'} cursor-pointer transition-all ${bgClass} relative`}
+                                    className={cn(
+                                        "text-center p-1 rounded-lg cursor-pointer transition-all relative",
+                                        isSmallScreen ? "min-w-[2.5rem]" : "min-w-[2.8rem]",
+                                        bgClass
+                                    )}
                                 >
-                                    <div className={`text-xs font-medium ${textClass}`}>
+                                    <div className={cn("text-xs font-medium", textClass)}>
                                         {DAYS[date.getDay()]}
                                     </div>
                                     <div className="text-lg font-semibold">{String(date.getDate()).padStart(2, '0')}</div>
@@ -245,7 +253,10 @@ export function CalendarWidget() {
                                                 i < 4 ? (
                                                     <div
                                                         key={i}
-                                                        className={`text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-full relative bg-bg-purple-pink size-8 overflow-hidden border-[0.17rem] border-white ${i > 0 ? 'ml-[-0.50rem]' : ''}`}
+                                                        className={cn(
+                                                            "text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-full relative bg-bg-purple-pink size-8 overflow-hidden border-[0.17rem] border-white",
+                                                            i > 0 && "ml-[-0.50rem]"
+                                                        )}
                                                     >
                                                         <Image
                                                             src={attendee.avatar || ''}
@@ -258,7 +269,10 @@ export function CalendarWidget() {
                                                 ) : i === 4 ? (
                                                     <div
                                                         key={i}
-                                                        className={`text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-full relative bg-[#6c39d3] size-8 overflow-hidden border-0 ${i > 0 ? 'ml-[-0.50rem]' : ''}`}
+                                                        className={cn(
+                                                            "text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-full relative bg-[#6c39d3] size-8 overflow-hidden border-0",
+                                                            i > 0 && "ml-[-0.50rem]"
+                                                        )}
                                                     >
                                                         <div className="flex items-center justify-center gap-[0.06rem]">
                                                             <Plus className="size-2.5 text-white" strokeWidth={3} />

@@ -3,6 +3,7 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { TTask } from "@/types/ui"
 import { ChevronDown } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 
 
@@ -31,14 +32,19 @@ export function TasksTable({ tasks }: TasksTableProps) {
                             </div>
                         </TableCell>
                         <TableCell className="text-center pl-0">
-                            <span className={`p-[0.25rem] rounded text-[0.63rem] font-[580] ${task.priority === 'High' ? 'bg-[#ffc1c2]' :
-                                task.priority === 'Medium' ? 'bg-[#f9d2b0]' :
-                                    'bg-gray-section'
-                                }`}>
+                            <span className={cn(
+                                "p-[0.25rem] rounded text-[0.63rem] font-[580]",
+                                task.priority === 'High' && 'bg-[#ffc1c2]',
+                                task.priority === 'Medium' && 'bg-[#f9d2b0]',
+                                task.priority === 'Low' && 'bg-gray-section'
+                            )}>
                                 {task.priority}
                             </span>
                         </TableCell>
-                        <TableCell className={`py-3 text-right pr-0 ${task.dueDate === 'Today' ? 'text-[#ee4e4c]' : ''}`}>
+                        <TableCell className={cn(
+                            "py-3 text-right pr-0",
+                            task.dueDate === 'Today' && 'text-[#ee4e4c]'
+                        )}>
                             {task.dueDate}
                         </TableCell>
                     </TableRow>

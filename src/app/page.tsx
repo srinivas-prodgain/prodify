@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { useRouter } from "next/navigation"
 import { useState, useEffect } from "react"
 import { InfoIcon, XIcon, SparklesIcon, ArrowRightIcon, TimerIcon, ChartBarIcon, TagsIcon } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 
 export default function Home() {
@@ -66,7 +67,10 @@ export default function Home() {
         </div>
       )}
 
-      <div className={`relative z-10 flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8 ${showZoomSuggestion && isDesktop ? 'pt-16' : ''}`}>
+      <div className={cn(
+        "relative z-10 flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8",
+        showZoomSuggestion && isDesktop && "pt-16"
+      )}>
         <div className="w-full max-w-4xl mx-auto text-center pt-10">
 
           <div className="mb-8 sm:mb-12">

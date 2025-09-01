@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { ChevronDown, Plus } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 import {
   DropdownMenu,
@@ -48,19 +49,30 @@ export function TeamSwitcher({
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton
               size="lg"
-              className={`data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground border-gray-120 rounded-lg overflow-visible ${open ? 'border-[0.08rem]' : ''}`}
+              className={cn(
+                "data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground border-gray-120 rounded-lg overflow-visible",
+                open && "border-[0.08rem]"
+              )}
             >
               <div className="text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-full mr-1 relative bg-[#ded1f1] size-8">
                 <div className="w-full h-full flex items-center justify-center overflow-hidden rounded-full">
                   <Image src={activeTeam.image} alt={activeTeam.name} width={32} height={32} className="w-full h-full object-cover rounded-full mt-2" />
                 </div>
-                <div className={`size-2 absolute bottom-0 right-0 rounded-full ${activeTeam.status === "online" ? "bg-green-300" : activeTeam.status === "away" ? "bg-yellow-300" : "bg-red-300"} z-50`} />
+                <div className={cn(
+                  "size-2 absolute bottom-0 right-0 rounded-full z-50",
+                  activeTeam.status === "online" && "bg-green-300",
+                  activeTeam.status === "away" && "bg-yellow-300",
+                  activeTeam.status === "offline" && "bg-red-300"
+                )} />
               </div>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-medium text-[0.87rem]">{activeTeam.name}</span>
                 <span className="truncate text-[0.56rem] text-gray-400">{activeTeam.status === "online" ? "Online" : activeTeam.status === "away" ? "Away" : "Offline"}</span>
               </div>
-              <ChevronDown className={`ml-auto text-gray-medium ${!open && 'hidden'} size-4`} strokeWidth={2.5} />
+              <ChevronDown className={cn(
+                "ml-auto text-gray-medium size-4",
+                !open && "hidden"
+              )} strokeWidth={2.5} />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -80,7 +92,12 @@ export function TeamSwitcher({
               >
                 <div className="flex size-6 items-center justify-center relative">
                   <Image src={team.image} alt={team.name} width={32} height={32} className="object-cover rounded-full" />
-                  <div className={`size-2 absolute bottom-0 right-0 rounded-full ${team.status === "online" ? "bg-green-300" : team.status === "away" ? "bg-yellow-300" : "bg-red-300"}`} />
+                  <div className={cn(
+                    "size-2 absolute bottom-0 right-0 rounded-full",
+                    team.status === "online" && "bg-green-300",
+                    team.status === "away" && "bg-yellow-300",
+                    team.status === "offline" && "bg-red-300"
+                  )} />
                 </div>
                 {team.name}
                 <DropdownMenuShortcut>⌘{index + 1}</DropdownMenuShortcut>
