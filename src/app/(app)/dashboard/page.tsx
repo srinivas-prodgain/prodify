@@ -13,7 +13,7 @@ import { Reminders } from "@/components/reminders"
 
 import { OUTLINE_BUTTON_STYLES } from "@/constants/all-constants"
 import { StarIcon } from "@/constants/start-icon"
-import { getTheCurrentDate } from "@/utils/get-the-c-date"
+import { getTheCurrentDate } from "@/utils/date-utils"
 
 
 
