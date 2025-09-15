@@ -1,15 +1,15 @@
 "use client"
 
-import { CircularProgress } from "@/components/sub-components/circular-progress"
+import { UnifiedProgress } from "@/components/ui/unified-progress"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { TFocusMetric } from "@/types/ui"
 
-interface FocusMetricItemProps {
+type FocusMetricItemProps = {
     metric: TFocusMetric
     onClick?: (metricId: number) => void
 }
 
-export function FocusMetricItem({ metric, onClick }: FocusMetricItemProps) {
+export const FocusMetricItem = ({ metric, onClick }: FocusMetricItemProps) => {
     const handleClick = () => {
         onClick?.(metric.id)
     }
@@ -25,7 +25,8 @@ export function FocusMetricItem({ metric, onClick }: FocusMetricItemProps) {
                 >
                     {/* Desktop Layout */}
                     <div className="hidden min-[560px]:flex items-center gap-4">
-                        <CircularProgress
+                        <UnifiedProgress
+                            variant="circular"
                             value={metric.value}
                             target={metric.target}
                             color={metric.color}
@@ -57,7 +58,8 @@ export function FocusMetricItem({ metric, onClick }: FocusMetricItemProps) {
                     {/* Mobile Layout */}
                     <div className="block min-[560px]:hidden">
                         <div className="flex items-center gap-3">
-                            <CircularProgress
+                            <UnifiedProgress
+                                variant="circular"
                                 value={metric.value}
                                 target={metric.target}
                                 color={metric.color}

@@ -1,6 +1,6 @@
 "use client"
 
-import { Progress } from "@/components/ui/progress"
+import { UnifiedProgress } from "@/components/ui/unified-progress"
 import {
     Tooltip,
     TooltipContent,
@@ -8,12 +8,12 @@ import {
 } from "@/components/ui/tooltip"
 import { TGoal } from "@/types/ui"
 
-interface GoalItemProps {
+type GoalItemProps = {
     goal: TGoal
     onClick?: (goalId: number) => void
 }
 
-export function GoalItem({ goal, onClick }: GoalItemProps) {
+export const GoalItem = ({ goal, onClick }: GoalItemProps) => {
     const handleClick = () => {
         onClick?.(goal.id)
     }
@@ -35,7 +35,7 @@ export function GoalItem({ goal, onClick }: GoalItemProps) {
                         </div>
 
                         <div className="flex-1 max-w-[5rem] mt-2">
-                            <Progress
+                            <UnifiedProgress
                                 value={goal.progress}
                                 className="h-2 ml-2"
                             />
@@ -60,7 +60,7 @@ export function GoalItem({ goal, onClick }: GoalItemProps) {
                         </div>
 
                         <div className="w-full">
-                            <Progress
+                            <UnifiedProgress
                                 value={goal.progress}
                                 className="h-2"
                             />
@@ -68,7 +68,7 @@ export function GoalItem({ goal, onClick }: GoalItemProps) {
                     </div>
                 </div>
             </TooltipTrigger>
-            <TooltipContent side="top" sideOffset={8}>
+            <TooltipContent side="top" sideOffset={4}>
                 <p className="text-sm font-medium leading-relaxed">{goal.name}</p>
             </TooltipContent>
         </Tooltip>

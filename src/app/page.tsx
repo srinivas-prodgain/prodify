@@ -51,7 +51,7 @@ export default function Home() {
             <div className="flex items-center gap-3">
               <InfoIcon className="w-5 h-5 flex-shrink-0" />
               <div className="text-sm sm:text-base">
-                <span className="font-[600]">💡 Pro Tip:</span> For the best viewing experience on desktop, set your browser zoom to <span className="font-[700] bg-white/20 px-2 py-1 rounded">90%</span>
+                <span className="font-semibold">💡 Pro Tip:</span> For the best viewing experience on desktop, set your browser zoom to <span className="font-[700] bg-white/20 px-2 py-1 rounded">90%</span>
                 <span className="hidden sm:inline ml-2 text-white/80">(Ctrl/Cmd + - to zoom out)</span>
               </div>
             </div>
