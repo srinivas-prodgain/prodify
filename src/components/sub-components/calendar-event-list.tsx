@@ -1,6 +1,6 @@
 "use client"
 
-import { CalendarDays, MoreHorizontal, Plus } from "lucide-react"
+import { CalendarDays, MoreHorizontal } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
     DropdownMenu,
@@ -8,13 +8,12 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import Image from "next/image"
+import { AvatarStack } from "@/components/ui/avatar-stack"
 import { getPlatformIcon } from "@/utils/get-meet-icons"
-import { cn } from "@/lib/utils"
 import { formatEventDate } from "@/utils/date-utils"
 import { TCalendarEvent } from "@/types/ui"
 
-interface CalendarEventListProps {
+type CalendarEventListProps = {
     events: TCalendarEvent[]
     selectedDate: Date | null
 }
@@ -72,42 +71,14 @@ export function CalendarEventList({ events, selectedDate }: CalendarEventListPro
                         </div>
 
                         {event.attendees.length > 0 && (
-                            <div className="flex items-center justify-center bg-white rounded-full">
-                                {event.attendees.slice(0, 5).map((attendee, i) => (
-                                    i < 4 ? (
-                                        <div
-                                            key={i}
-                                            className={cn(
-                                                "text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-full relative bg-bg-purple-pink size-8 overflow-hidden border-[0.17rem] border-white",
-                                                i > 0 && "ml-[-0.50rem]"
-                                            )}
-                                        >
-                                            <Image
-                                                src={attendee.avatar || ''}
-                                                alt={attendee.name}
-                                                width={32}
-                                                height={32}
-                                                className="w-full h-full object-cover rounded-full mt-2"
-                                            />
-                                        </div>
-                                    ) : i === 4 ? (
-                                        <div
-                                            key={i}
-                                            className={cn(
-                                                "text-sidebar-primary-foreground flex aspect-square items-center justify-center rounded-full relative bg-[#6c39d3] size-8 overflow-hidden border-0",
-                                                i > 0 && "ml-[-0.50rem]"
-                                            )}
-                                        >
-                                            <div className="flex items-center justify-center gap-[0.06rem]">
-                                                <Plus className="size-2.5 text-white" strokeWidth={3} />
-                                                <span className="text-white text-[0.91rem] font-[450]">
-                                                    {event.attendees.length - 4}
-                                                </span>
-                                            </div>
-                                        </div>
-                                    ) : null
-                                ))}
-                            </div>
+                            <AvatarStack
+                                attendees={event.attendees}
+                                maxVisible={4}
+                                size="md"
+                                avatarBackgroundColor="bg-bg-purple-pink"
+                                overflowBackgroundColor="bg-[#6c39d3]"
+                                containerBackgroundColor="bg-white"
+                            />
                         )}
                     </div>
                 </div>

@@ -58,12 +58,11 @@ export function TeamSwitcher({
                 <div className="w-full h-full flex items-center justify-center overflow-hidden rounded-full">
                   <Image src={activeTeam.image} alt={activeTeam.name} width={32} height={32} className="w-full h-full object-cover rounded-full mt-2" />
                 </div>
-                <div className={cn(
-                  "size-2 absolute bottom-0 right-0 rounded-full z-50",
+                <div className={cn("size-2 absolute bottom-0 right-0 rounded-full z-50",
                   activeTeam.status === "online" && "bg-green-300",
                   activeTeam.status === "away" && "bg-yellow-300",
-                  activeTeam.status === "offline" && "bg-red-300"
-                )} />
+                  activeTeam.status === "offline" && "bg-red-300")}
+                />
               </div>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-medium text-[0.87rem]">{activeTeam.name}</span>

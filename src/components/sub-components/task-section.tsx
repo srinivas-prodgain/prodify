@@ -4,7 +4,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/colla
 import { TasksTable } from "./tasks-table"
 import { cn } from "@/lib/utils"
 
-import { ChevronUp, ChevronDown } from "lucide-react"
+import { ChevronDown } from "lucide-react"
 
 const TASK_STATUS = ['progress', 'todo', 'upcoming'] as const
 
@@ -16,22 +16,12 @@ const STATUS_CONFIG = {
     upcoming: { label: "UPCOMING", bgColor: "bg-[#f9d3b0]" }
 } as const
 
-
-type TChevronIconProps = {
-    isOpen: boolean
-}
-
-
 type TTaskSectionProps = {
     status: TTaskStatus
     isOpen: boolean
     onToggle: (open: boolean) => void
     tasks: TTask[]
 }
-
-
-const ChevronIcon = ({ isOpen }: TChevronIconProps) =>
-    isOpen ? <ChevronUp className="size-4" strokeWidth={2.5} /> : <ChevronDown className="size-4" strokeWidth={2.5} />
 
 
 
@@ -48,7 +38,10 @@ export const TaskSection = ({
             <CollapsibleTrigger asChild>
                 <Button variant="ghost" className="w-full justify-between h-auto hover:bg-transparent p-0 py-2">
                     <div className="flex items-center gap-2">
-                        <ChevronIcon isOpen={isOpen} />
+                        <ChevronDown className={cn(
+                            "size-4 strokeWidth-[2.5] transition-transform duration-200",
+                            isOpen && "rotate-180"
+                        )} />
                         <span className={cn(
                             "px-2 py-1 rounded-[0.31rem] text-xs font-[580]",
                             config.bgColor

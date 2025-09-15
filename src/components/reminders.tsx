@@ -3,7 +3,6 @@
 import { useState } from "react"
 import {
     ChevronDown,
-    ChevronUp,
     Timer,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -11,6 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { ReminderItem } from "@/components/sub-components/reminder-item"
 import { reminders } from "@/data/dummy-data"
+import { cn } from "@/lib/utils"
 
 export function Reminders() {
     const [isTodayOpen, setIsTodayOpen] = useState(true)
@@ -48,11 +48,10 @@ export function Reminders() {
                                 className="flex items-center justify-between w-full p-0 h-auto hover:bg-transparent"
                             >
                                 <div className="flex items-center gap-2">
-                                    {isTodayOpen ? (
-                                        <ChevronDown strokeWidth={2.5} height="1.88rem" width="1.88rem" />
-                                    ) : (
-                                        <ChevronUp strokeWidth={2.5} height="1.88rem" width="1.88rem" />
-                                    )}
+                                    <ChevronDown className={cn(
+                                        "size-4 strokeWidth-[2.5] transition-transform duration-200",
+                                        isTodayOpen && "rotate-180"
+                                    )} />
                                     <span className="font-[580] text-[1.13rem]">Today</span>
                                     <span className="text-sm text-[#a5a5a5]">•</span>
                                     <span className="text-[0.94rem] font-[580] text-[#a5a5a5]">

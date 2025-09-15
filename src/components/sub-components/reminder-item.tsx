@@ -8,19 +8,19 @@ import {
 import { Button } from "@/components/ui/button"
 import { TReminder } from "@/types/ui"
 
-interface ReminderItemProps {
+type ReminderItemProps = {
     reminder: TReminder
     onNotify?: (reminderId: number) => void
     onDelete?: (reminderId: number) => void
     onComplete?: (reminderId: number) => void
 }
 
-export function ReminderItem({
+export const ReminderItem = ({
     reminder,
     onNotify,
     onDelete,
     onComplete
-}: ReminderItemProps) {
+}: ReminderItemProps) => {
     const handleNotify = () => {
         onNotify?.(reminder.id)
     }
@@ -37,7 +37,7 @@ export function ReminderItem({
         <div className="flex items-start justify-between gap-3 p-3 pl-0 transition-colors border-b-2 border-[#f2f3f7] cursor-pointer">
             <div className="flex items-start gap-3 flex-1">
                 <div className="flex-1 min-w-0">
-                    <p className="text-[0.94rem] text-[#333333] leading-relaxed font-[550]">
+                    <p className="text-[0.94rem] text-foreground leading-relaxed font-[550]">
                         {reminder.text}
                     </p>
                 </div>
@@ -48,7 +48,7 @@ export function ReminderItem({
                     size="sm"
                     className="size-9 p-0 hover:bg-blue-50 hover:text-blue-600"
                     onClick={handleNotify}
-                >
+                >   
                     <Bell className="size-4" />
                 </Button>
                 <Button

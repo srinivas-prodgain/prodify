@@ -11,7 +11,7 @@ import {
     getEventsForDate,
 } from "@/utils/date-utils"
 
-interface CalendarWeekSelectorProps {
+type CalendarWeekSelectorProps = {
     weekDates: Date[]
     selectedDate: Date | null
     isSmallScreen: boolean

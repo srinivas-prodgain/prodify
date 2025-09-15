@@ -11,7 +11,6 @@ import { ProjectsGrid } from "@/components/projects-grid"
 import { Reminders } from "@/components/reminders"
 
 
-import { OUTLINE_BUTTON_STYLES } from "@/constants/all-constants"
 import { StarIcon } from "@/constants/start-icon"
 import { getTheCurrentDate } from "@/utils/date-utils"
 
@@ -48,15 +47,15 @@ export default function Page() {
                                     <span className="text-sm lg:text-[0.94rem] font-[550] mr-1">Ask AI</span>
                                 </Button>
 
-                                <Button variant="outline" className={OUTLINE_BUTTON_STYLES}>
+                                <Button variant="customPrimary">
                                     Get tasks updates
                                 </Button>
 
-                                <Button variant="outline" className={OUTLINE_BUTTON_STYLES}>
+                                <Button variant="customPrimary">
                                     Create workspace
                                 </Button>
 
-                                <Button variant="outline" className={OUTLINE_BUTTON_STYLES}>
+                                <Button variant="customPrimary">
                                     Connect apps
                                 </Button>
                             </div>
