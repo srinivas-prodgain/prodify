@@ -1,3 +1,7 @@
+# Added by codex-action.
+model_provider = "codex-action-responses-proxy"
+
+
 approval_policy = "never"
 
 [mcp_servers.axiom]
@@ -9,3 +13,13 @@ startup_timeout_sec = 30
 tool_timeout_sec = 90
 default_tools_approval_mode = "approve"
 env_vars = ["AXIOM_TOKEN", "AXIOM_URL", "AXIOM_QUERY_RATE", "AXIOM_QUERY_BURST", "AXIOM_DATASETS_RATE", "AXIOM_DATASETS_BURST"]
+
+
+# Added by codex-action.
+[model_providers.codex-action-responses-proxy]
+name = "Codex Action Responses Proxy"
+base_url = "http://127.0.0.1:46533/v1"
+wire_api = "responses"
+
+[projects."/home/runner/work/prodify/prodify"]
+trust_level = "trusted"
