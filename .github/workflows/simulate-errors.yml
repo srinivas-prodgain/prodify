@@ -23,5 +23,5 @@ jobs:
         env:
           AXIOM_TOKEN: ${{ secrets.AXIOM_TOKEN }}
           AXIOM_URL: https://api.axiom.co
-          AXIOM_DATASET: prodify-logs
+          AXIOM_DATASET: test-2
         run: node scripts/simulate-errors.mjs
