@@ -1,0 +1,27 @@
+name: Simulate App Errors → Axiom
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '* * * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Send simulated errors to Axiom
+        env:
+          AXIOM_TOKEN: ${{ secrets.AXIOM_TOKEN }}
+          AXIOM_URL: https://api.axiom.co
+          AXIOM_DATASET: prodify-logs
+        run: node scripts/simulate-errors.mjs
