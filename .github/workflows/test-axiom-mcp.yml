@@ -4,7 +4,9 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
+  pull-requests: write
+  issues: write
 
 jobs:
   test-axiom-mcp:
@@ -30,5 +32,13 @@ jobs:
           openai-api-key: ${{ secrets.OPENAI_API_KEY }}
           codex-home: .codex-home
           prompt-file: .github/codex/prompts/test-axiom-mcp.md
-          sandbox: read-only
+          sandbox: workspace-write
           output-file: codex-output.md
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          branch: codex/axiom-test-fix
+          title: "fix: handle Axiom-reported test error"
+          body-path: codex-output.md
+          commit-message: "fix: handle Axiom-reported test error"
+          draft: true

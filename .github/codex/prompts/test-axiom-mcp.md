@@ -20,7 +20,7 @@ This is a simulation/test workflow, so even if the issue is minor, still make on
 - Inspect the codebase.
 - Modify code.
 - Add or update tests.
-- Create a pull request.
+- Modify the code and write a PR-ready summary. The GitHub Actions workflow will create the PR after you finish.
 - Make at least one safe change if any error log is found.
 
 ## Not allowed
@@ -122,6 +122,19 @@ PR body must include:
 * Tests run
 * Risk level
 * Note that this is a test-project simulation
+
+If at least one error log is found:
+1. Identify the most actionable error.
+2. Inspect the codebase for related files.
+3. Make one small safe code change related to the error.
+4. Add or update a test if possible.
+5. Run relevant test/build/lint command if available.
+6. Write a PR-ready summary.
+
+Do not run `gh pr create`.
+Do not create the PR yourself.
+The GitHub Actions workflow will create the pull request after this step.
+
 
 Do not auto-merge.
 
