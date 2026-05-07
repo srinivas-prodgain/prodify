@@ -19,6 +19,9 @@ jobs:
 
       - name: Run Codex MCP test
         uses: openai/codex-action@v1
+        env:
+          AXIOM_TOKEN: ${{ secrets.AXIOM_TOKEN }}
+          AXIOM_URL: ${{ secrets.AXIOM_URL }}
         with:
           openai-api-key: ${{ secrets.OPENAI_API_KEY }}
           codex-home: .codex-home
