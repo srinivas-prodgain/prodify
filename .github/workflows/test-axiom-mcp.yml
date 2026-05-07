@@ -21,7 +21,11 @@ jobs:
         uses: openai/codex-action@v1
         env:
           AXIOM_TOKEN: ${{ secrets.AXIOM_TOKEN }}
-          AXIOM_URL: ${{ secrets.AXIOM_URL }}
+          AXIOM_URL: https://api.axiom.co
+          AXIOM_QUERY_RATE: "1"
+          AXIOM_QUERY_BURST: "1"
+          AXIOM_DATASETS_RATE: "1"
+          AXIOM_DATASETS_BURST: "1"
         with:
           openai-api-key: ${{ secrets.OPENAI_API_KEY }}
           codex-home: .codex-home

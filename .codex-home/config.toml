@@ -8,11 +8,4 @@ required = true
 startup_timeout_sec = 30
 tool_timeout_sec = 90
 default_tools_approval_mode = "approve"
-
-[mcp_servers.axiom.env]
-AXIOM_TOKEN = "xaat-055c9ae1-3e14-478f-a658-940d7965dbe3"
-AXIOM_URL = "https://api.axiom.co"
-AXIOM_QUERY_RATE = "1"
-AXIOM_QUERY_BURST = "1"
-AXIOM_DATASETS_RATE = "1"
-AXIOM_DATASETS_BURST = "1"
+env_vars = ["AXIOM_TOKEN", "AXIOM_URL", "AXIOM_QUERY_RATE", "AXIOM_QUERY_BURST", "AXIOM_DATASETS_RATE", "AXIOM_DATASETS_BURST"]
