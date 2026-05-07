@@ -1,7 +1,7 @@
 [mcp_servers.axiom]
 command = "npx"
-args = ["mcp-remote", "https://mcp.axiom.co"]
+args = ["-y", "mcp-remote", "https://mcp.axiom.co/mcp"]
 enabled = true
 required = true
-startup_timeout_sec = 20
+startup_timeout_sec = 30
 tool_timeout_sec = 90
