@@ -1,3 +1,5 @@
+approval_policy = "never"
+
 [mcp_servers.axiom]
 command = "npx"
 args = ["-y", "mcp-server-axiom"]
